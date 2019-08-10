@@ -4,7 +4,18 @@
 """
 
 import numpy as np
+import tensorflow as tf
+
 from src import config
+from src.main import model_config
+
+
+class DataSetProvider:
+    def __init__(self, model_config):
+        self.model_config = model_config
+
+    def get_text_line_data_set(self, data_set_path):
+        text_line_dataset = tf.data.TextLineDataset(data_set_path)
 
 
 def to_info_embedding_matrix(file_path):
@@ -14,18 +25,16 @@ def to_info_embedding_matrix(file_path):
     return np.array(info_embedding_list, dtype='float32')
 
 
-def to_instance(string):
-    # string = "1\t0\t612\t0\t0\t0\t0\t0\t4\t\t\t978970\t1\t1"
-    string = "1\t0\t612\t0\t0\t0\t0\t0\t4\t0\t0\t978970\t1\t1"
-    l = []
-    for feature, value in zip(config.FEATURE_LIST, string.strip("\r\n").split("\t")):
-        if feature in config.SINGLE_FEATURE_LIST or feature in config.TARGET_FEATURE_LIST:
-            l.append(value)
-        elif feature in config.UNORDERED_FEATURE_LIST or feature in config.ORDERED_FEATURE_LIST:
-            l.append(value.split(","))
-        else:
-            print("这是不可能的")
-    return np.array(l, dtype=np.int32)
+def to_instance(line_tensor):
+    split_line_tensor = tf.string_split([tf.string_strip(line_tensor)], "\t", False).values
+    instance = []
+    for feature in model_config.feature_index_type_map:
+        index, feature_nature, feature_type, attribute = model_config.feature_index_type_map[feature]
+        instance.append(tf.string_to_number(split_line_tensor[index], tf.int32 if feature_type == "discrete" else tf.float32)
+                        if feature_nature == "single" or feature_nature == "label"
+                        else tf.string_to_number(tf.string_split([tf.string_strip(split_line_tensor[index])], ",").values, tf.int32)
+                        )
+    return instance
 
 
 if __name__ == "__main__":

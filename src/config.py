@@ -1,60 +1,47 @@
 # coding=utf-8
-import os
 import configparser
-from absl import app
+import os
+
 from absl import flags
 
+project_root_path = os.path.abspath(os.path.join(os.getcwd(), os.path.pardir))
+source_code_path = os.path.join(project_root_path, "src")
+resources_path = os.path.join(project_root_path, "resources")
+data_path = os.path.join(project_root_path, "data")
+model_parameters_path = os.path.join(project_root_path, "model_parameters")
+model_path = os.path.join(source_code_path, "models")
+info_input_embeddings_text_file_path = os.path.join(data_path, "input_vector_sample")
+info_input_embeddings_path = os.path.join(data_path, "info_input_embeddings.npy")
+default_config_file_path = os.path.join(resources_path, "youtube_deep_recall_model.cfg")
 conf = configparser.ConfigParser()
-PROJECT_ROOT_PATH = os.path.abspath(os.path.join(os.getcwd(), os.path.pardir))
-SOURCE_CODE_PATH = os.path.join(PROJECT_ROOT_PATH, "src")
-RESOURCES_PATH = os.path.join(PROJECT_ROOT_PATH, "resources")
-DATA_PATH = os.path.join(PROJECT_ROOT_PATH, "data")
-MODEL_PARAMETER_PATH = os.path.join(PROJECT_ROOT_PATH, "model_parameters")
-DEFAULT_MODEL_CONFIG_PATH = os.path.join(RESOURCES_PATH, "default_model_config.ini")
-MODEL_PATH = os.path.join(SOURCE_CODE_PATH, "models")
-INFO_INPUT_EMBEDDINGS_TEXT_FILE_PATH = os.path.join(DATA_PATH, "input_vector_sample")
-INFO_INPUT_EMBEDDINGS_PATH = os.path.join(DATA_PATH, "info_input_embeddings.npy")
-SINGLE_FEATURE_LIST = ["slot", "os", "selecttag", "education", "gender", "workedyears", "age_split"]
-UNORDERED_FEATURE_LIST = ["targetcateid", "userportraittag"]
-ORDERED_FEATURE_LIST = ["click_history_list", "delivery_history_list"]
-TARGET_FEATURE_LIST = ["infoid", "clicktag", "dlytag"]
-FEATURE_LIST = SINGLE_FEATURE_LIST + UNORDERED_FEATURE_LIST + ORDERED_FEATURE_LIST + TARGET_FEATURE_LIST
+conf.read(default_config_file_path)
 
 
 class ModelConfiguration:
-    """
-    后期添加上特征配置
-    """
     def __init__(self):
-        self.epoch_num = 3
-        self.batch_size = 64
-        self.learn_rate = 1.0
-        self.info_size = 99
-        self.info_embedding_size = 50
-        self.default_embedding_size = 5
-        self.max_sequence_size = 50
-        # 这里可选将所有属性键值都加入，然后下面初始化时判断是否包含该键
-        self.attribute_embedding_size_map = {"default": 10}
+        self.feature_index_type_map = {}
+        self.attribute_dim_map = {}
+        # 对指定特征设置维度
+        self.feature_embedding_dim_map = {}
+        self.from_config_file(default_config_file_path)
 
     def from_config_file(self, file_path):
         conf.read(file_path)
-        for option in conf.options("model_configuration"):
-            try:
-                if option in self.__dict__:
-                    exec("self." + option + " = " + conf.get("model_configuration", option))
-                elif "attribute_embedding_size" == (option.split('.')[0]):
-                    self.attribute_embedding_size_map[option.split('.')[1]] = conf.get("model_configuration", option)
-                else:
-                    raise AttributeError
-            except AttributeError:
-                exit(1)
+        for option in conf.options("model_hyper_parameters"):
+            exec("self." + option + " = " + conf.get("model_hyper_parameters", option))
+        for option in conf.options("feature_index_type"):
+            self.feature_index_type_map[option] = eval(conf.get("feature_index_type", option))
+        for option in conf.options("attribute_dim"):
+            self.attribute_dim_map[option] = conf.getint("attribute_dim", option)
 
-    def from_command_line_arguments(self, app):
-        """
-        :param app: absl.app
-        :return:
-        """
-        pass
+    def from_command_line_arguments(self):
+        FLAGS = flags.FLAGS
+        if FLAGS.config:
+            self.from_config_file(FLAGS.config)
+        for option in ["epoch_num", "batch_size", "learn_rate"]:
+            value = eval("FLAGS." + option)
+            if value:
+                exec("self." + option + " = " + value)
 
     def __str__(self):
         string = ""
@@ -65,6 +52,5 @@ class ModelConfiguration:
 
 if __name__ == "__main__":
     m = ModelConfiguration()
-    m.from_config_file(DEFAULT_MODEL_CONFIG_PATH)
+    m.from_config_file(default_config_file_path)
     print(m)
-
