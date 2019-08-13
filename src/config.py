@@ -8,13 +8,12 @@ project_root_path = os.path.abspath(os.path.join(os.getcwd(), os.path.pardir))
 source_code_path = os.path.join(project_root_path, "src")
 resources_path = os.path.join(project_root_path, "resources")
 data_path = os.path.join(project_root_path, "data")
-model_parameters_path = os.path.join(project_root_path, "model_parameters")
-model_path = os.path.join(source_code_path, "models")
-info_input_embeddings_text_file_path = os.path.join(data_path, "input_vector_sample")
-info_input_embeddings_path = os.path.join(data_path, "info_input_embeddings.npy")
-default_config_file_path = os.path.join(resources_path, "youtube_deep_recall_model.cfg")
+MODEL_PARAMETERS_PATH = os.path.join(project_root_path, "model_parameters")
+MODELS_PATH = os.path.join(source_code_path, "models")
+INFO_INPUT_EMBEDDINGS_TEXT_FILE_PATH = os.path.join(data_path, "input_vector_sample")
+INFO_INPUT_EMBEDDINGS_PATH = os.path.join(data_path, "info_input_embeddings.npy")
+DEFAULT_CONFIG_FILE_PATH = os.path.join(resources_path, "youtube_deep_recall_model.cfg")
 conf = configparser.ConfigParser()
-conf.read(default_config_file_path)
 
 
 class ModelConfiguration:
@@ -23,7 +22,7 @@ class ModelConfiguration:
         self.attribute_dim_map = {}
         # 对指定特征设置维度
         self.feature_embedding_dim_map = {}
-        self.from_config_file(default_config_file_path)
+        self.from_config_file(DEFAULT_CONFIG_FILE_PATH)
 
     def from_config_file(self, file_path):
         conf.read(file_path)
@@ -52,5 +51,4 @@ class ModelConfiguration:
 
 if __name__ == "__main__":
     m = ModelConfiguration()
-    m.from_config_file(default_config_file_path)
     print(m)
