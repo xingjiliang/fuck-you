@@ -12,8 +12,8 @@ import numpy as np
 import tensorflow as tf
 from absl import app
 from absl import flags
-from src import data_utils
-from src import config
+import data_utils
+import config
 
 
 def test(model_name, model_config, dataset_path, sess):

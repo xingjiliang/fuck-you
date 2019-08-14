@@ -12,8 +12,8 @@ import numpy as np
 import tensorflow as tf
 from absl import app
 from absl import flags
-from src import data_utils
-from src import config
+import data_utils
+import config
 
 
 FLAGS = flags.FLAGS
@@ -23,20 +23,21 @@ def train(model_name, model_config, application_name, dataset_path):
     train_dataset = data_utils.from_text_line_file(dataset_path, True, model_config)
     sample = train_dataset.make_one_shot_iterator().get_next()
 
-    with tf.variable_scope(flags.FLAGS.model, reuse=False):
-        model = import_module(os.path.join(config.MODELS_PATH, model_name)).Model(model_config, sample, np.load(
+    with tf.variable_scope(model_name, reuse=False):
+        model = import_module("models." + model_name).Model(model_config, sample, np.load(
             config.INFO_INPUT_EMBEDDINGS_PATH), True)
         saver = tf.train.Saver(max_to_keep=None)
         save_path = os.path.join(config.MODEL_PARAMETERS_PATH, application_name)
         # todo: 后续可以从停止的地方开始...
         global_step = tf.train.get_or_create_global_step()
         op = tf.train.AdamOptimizer(model_config.learn_rate).minimize(model.loss, global_step=global_step)
-        fetches = [model.accuracy, model.loss, zip(model.instance, model.labels, model.logits), op]
+        fetches = [model.loss, op]
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             try:
                 while True:
-                    sess.run(fetches)
+                    loss, op = sess.run(fetches)
+                    print(loss)
             except tf.errors.OutOfRangeError:
                 saver.save(sess, save_path, global_step=global_step)
     return sess

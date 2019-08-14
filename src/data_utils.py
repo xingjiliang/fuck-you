@@ -6,7 +6,7 @@
 import numpy as np
 import tensorflow as tf
 
-from src import config
+import config
 
 
 def from_text_line_file(dataset_path, is_trainning, dataset_config):

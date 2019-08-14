@@ -2,8 +2,8 @@
 import tensorflow as tf
 from tensorflow.python.ops.nn_impl import _compute_sampled_logits
 
-from src import config
-from src import data_utils
+import config
+import data_utils
 
 
 class Model:
@@ -40,7 +40,7 @@ class Model:
         for attribute in model_config.attribute_dim_map:
             self.feature_embeddings_map[attribute] = tf.get_variable(attribute + "_embeddings",
                                                                      [model_config.attribute_dim_map[attribute],
-                                                                      config.default_embedding_size],
+                                                                      model_config.default_attribute_embedding_size],
                                                                      tf.float32,
                                                                      initializer=tf.contrib.layers.xavier_initializer())
 
@@ -76,18 +76,19 @@ class Model:
             temp_hidden_vector = tf.nn.relu(
                 tf.add(tf.matmul(temp_hidden_vector, temp_hidden_layer), temp_hidden_layer_bias)
             )
+            pre_layer_size = hidden_layer_size
             self.hidden_vector_list.append(temp_hidden_vector)
         self.so_called_user_embedding = temp_hidden_vector
 
         # 注意在这个地方的尺寸 todo so_called_user_embedding和info_output_embeddings需要一致
         self.logits, self.labels = _compute_sampled_logits(
             weights=self.feature_embeddings_map["info_output_embeddings"],  # 是随机初始化还是？ [input_embedding_size, 词典词数量]
-            biases=tf.get_variable("nce_classes_bias", model_config.info_size, tf.float32,
-                                   initializer=tf.contrib.layers.random_normal_initializer()),  # [词典词数量]
+            biases=tf.get_variable("nce_classes_bias", info_input_embeddings.shape[0], tf.float32,
+                                   initializer=tf.random_normal_initializer()),  # [词典词数量]
             inputs=self.so_called_user_embedding,  # [batch_size, input_embedding_size]
-            labels=self.feature_value_map["info_id"],  # [batch_size, true_size]
+            labels=tf.expand_dims(self.feature_value_map["info_id"], -1),  # [batch_size, true_size]
             num_sampled=10,  # 负采样数量
-            num_classes=model_config.info_size,  # 词典词数量
+            num_classes=info_input_embeddings.shape[0],  # 词典词数量
             num_true=1,
             partition_strategy='mod',  # 'div'
             name="nce_loss"
