@@ -20,28 +20,29 @@ FLAGS = flags.FLAGS
 
 
 def train(model_name, model_config, application_name, dataset_path):
-    train_dataset = data_utils.from_text_line_file(dataset_path, True, model_config)
-    sample = train_dataset.make_one_shot_iterator().get_next()
+    with tf.device("/cpu:0"):
+        train_dataset = data_utils.from_text_line_file(dataset_path, True, model_config)
+        sample = train_dataset.make_one_shot_iterator().get_next()
 
-    with tf.variable_scope(model_name, reuse=False, caching_device="/gpu:0"):
-        model = import_module("models." + model_name).Model(model_config, sample, np.load(
-            config.INFO_INPUT_EMBEDDINGS_PATH), True)
-        saver = tf.train.Saver(max_to_keep=None)
-        save_path = os.path.join(config.MODEL_PARAMETERS_PATH, application_name)
-        # todo: 后续可以从停止的地方开始...
-        global_step = tf.train.get_or_create_global_step()
-        op = tf.train.AdamOptimizer(model_config.learn_rate).minimize(model.loss, global_step=global_step)
-        fetches = [model.loss, op]
-        tf_config = tf.ConfigProto(allow_soft_placement=True)
-        with tf.Session(config=tf_config) as sess:
-            sess.run(tf.global_variables_initializer())
-            try:
-                while True:
-                    loss, op = sess.run(fetches)
-                    print(loss)
-            except tf.errors.OutOfRangeError:
-                saver.save(sess, save_path, global_step=global_step)
-    return sess
+        with tf.variable_scope(model_name, reuse=False, caching_device="/gpu:0"):
+            model = import_module("models." + model_name).Model(model_config, sample, np.load(
+                config.INFO_INPUT_EMBEDDINGS_PATH), True)
+            saver = tf.train.Saver(max_to_keep=None)
+            save_path = os.path.join(config.MODEL_PARAMETERS_PATH, application_name)
+            # todo: 后续可以从停止的地方开始...
+            global_step = tf.train.get_or_create_global_step()
+            op = tf.train.AdamOptimizer(model_config.learn_rate).minimize(model.loss, global_step=global_step)
+            fetches = [model.loss, op]
+            tf_config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=True)
+            with tf.Session() as sess:
+                sess.run(tf.global_variables_initializer())
+                try:
+                    while True:
+                        loss, op = sess.run(fetches)
+                        print(loss)
+                except tf.errors.OutOfRangeError:
+                    saver.save(sess, save_path, global_step=global_step)
+        return sess
 
 # def main(_):
 #     pass
