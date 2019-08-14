@@ -97,6 +97,7 @@ class Model:
         sigmoid_cross_entropy_loss = tf.nn.sigmoid_cross_entropy_with_logits(labels=self.labels,
                                                                              logits=self.logits,
                                                                              name="sigmoid_cross_entropy_loss")
+        # TODO: 检查此处是否有问题
         self.loss = tf.reduce_mean(tf.reduce_sum(sigmoid_cross_entropy_loss, 1))
         # self.loss = tf.reduce_mean(tf.nn.nce_loss(
         #     weights=self.feature_embeddings_map["info_output_embeddings"],
