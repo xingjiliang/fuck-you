@@ -14,8 +14,8 @@ def main(_):
         exit(1)
     model_config = config.ModelConfiguration(FLAGS)
     # print(model_config)
-    sess = train.train(FLAGS.model_name, model_config, FLAGS.application_name, FLAGS.train_dataset_path)
-    # test.test(FLAGS.model, model_config, FLAGS.application_name, FLAGS.test_dataset_path, sess)
+    sess = train.train(FLAGS.model_name, model_config, FLAGS.application_name, os.path.join(config.DATA_PATH, FLAGS.train_dataset_path))
+    # test.test(FLAGS.model, model_config, FLAGS.application_name, os.path.join(config.DATA_PATH, FLAGS.test_dataset_path, sess))
 
 
 def check_arguments(FLAGS):
