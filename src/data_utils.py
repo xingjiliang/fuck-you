@@ -40,6 +40,23 @@ def from_text_line_file(dataset_path, is_trainning, dataset_config):
         return text_line_dataset.map(to_instance).padded_batch(10000, tuple(padded_shapes_list))
 
 
+def shard_array(array, shard_num):
+    array_row_num = array.shape[0]
+    sharded_batch_size = array_row_num // shard_num
+    mod = array_row_num % shard_num
+    array_list = []
+    start_idx = 0
+    for i in range(shard_num):
+        if mod > 0:
+            array_list.append(array[start_idx: start_idx + sharded_batch_size + 1])
+            start_idx += sharded_batch_size + 1
+            mod = mod - 1
+        else:
+            array_list.append(array[start_idx: start_idx + sharded_batch_size])
+            start_idx += sharded_batch_size
+    return array_list
+
+
 def to_info_embedding_array(file_path):
     info_embedding_list = []
     for line in open(file_path):
