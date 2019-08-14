@@ -32,7 +32,8 @@ def train(model_name, model_config, application_name, dataset_path):
         global_step = tf.train.get_or_create_global_step()
         op = tf.train.AdamOptimizer(model_config.learn_rate).minimize(model.loss, global_step=global_step)
         fetches = [model.loss, op]
-        with tf.Session() as sess:
+        tf_config = tf.ConfigProto(allow_soft_placement=True)
+        with tf.Session(config=tf_config) as sess:
             sess.run(tf.global_variables_initializer())
             try:
                 while True:
