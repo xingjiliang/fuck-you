@@ -23,7 +23,7 @@ def train(model_name, model_config, application_name, dataset_path):
     train_dataset = data_utils.from_text_line_file(dataset_path, True, model_config)
     sample = train_dataset.make_one_shot_iterator().get_next()
 
-    with tf.variable_scope(model_name, reuse=False):
+    with tf.variable_scope(model_name, reuse=False, caching_device="/gpu:0"):
         model = import_module("models." + model_name).Model(model_config, sample, np.load(
             config.INFO_INPUT_EMBEDDINGS_PATH), True)
         saver = tf.train.Saver(max_to_keep=None)
