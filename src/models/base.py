@@ -7,15 +7,15 @@ import data_utils
 
 
 class Model:
-    def __init__(self, model_config, sample, info_input_embeddings, is_training):
+    def __init__(self, global_config, sample, info_input_embeddings, is_training):
         """
         定义模型结构,并初始化参数
-        :param model_config:
+        :param global_config:
         """
-        self.model_config = model_config
+        self.model_config = global_config
 
         self.feature_value_map = {}
-        for i, feature in enumerate(model_config.feature_index_type_map):
+        for i, feature in enumerate(global_config.feature_index_type_map):
             self.feature_value_map[feature] = sample[i]
 
         def _get_tensor_list(name, array, shard_num):
@@ -37,10 +37,10 @@ class Model:
                                                       # FIXME: 当修改了这里的partitioner时，注意下面的embedding_lookup 和nce_loss都需要修改为'div'
                                                       # partitioner=tf.fixed_size_partitioner(3)
                                                       )}
-        for attribute in model_config.attribute_dim_map:
+        for attribute in global_config.attribute_dim_map:
             self.feature_embeddings_map[attribute] = tf.get_variable(attribute + "_embeddings",
-                                                                     [model_config.attribute_dim_map[attribute],
-                                                                      model_config.default_attribute_embedding_size],
+                                                                     [global_config.attribute_dim_map[attribute],
+                                                                      global_config.default_attribute_embedding_size],
                                                                      tf.float32,
                                                                      initializer=tf.contrib.layers.xavier_initializer())
 
@@ -50,8 +50,8 @@ class Model:
             "sequence": lambda x: tf.reduce_sum(x, 1)
         }
         self.before_fcn_embeddings_list = []
-        for feature in model_config.feature_index_type_map:
-            index, feature_nature, feature_type, attribute = model_config.feature_index_type_map[feature]
+        for feature in global_config.feature_index_type_map:
+            index, feature_nature, feature_type, attribute = global_config.feature_index_type_map[feature]
             if feature_nature == "label":
                 continue
             tensor = tf.nn.embedding_lookup(self.feature_embeddings_map[attribute],
@@ -64,7 +64,7 @@ class Model:
         temp_hidden_vector = self.so_called_raw_user_embedding
         pre_layer_size = self.so_called_raw_user_embedding.shape[1]
         self.hidden_vector_list = []
-        for i, hidden_layer_size in enumerate(model_config.full_connection_layer_list):
+        for i, hidden_layer_size in enumerate(global_config.full_connection_layer_list):
             temp_hidden_layer = tf.get_variable("hidden_layer_{}".format(i),
                                                 [pre_layer_size, hidden_layer_size],
                                                 tf.float32,

@@ -12,10 +12,10 @@ def main(_):
     FLAGS = flags.FLAGS
     if not check_arguments(FLAGS):
         exit(1)
-    model_config = config.ModelConfiguration(FLAGS)
-    # print(model_config)
-    sess = train.train(FLAGS.model_name, model_config, FLAGS.application_name, os.path.join(config.DATA_PATH, FLAGS.train_dataset_path))
-    # test.test(FLAGS.model, model_config, FLAGS.application_name, os.path.join(config.DATA_PATH, FLAGS.test_dataset_path, sess))
+    global_config = config.Configuration(FLAGS)
+    # print(global_config)
+    sess = train.train(global_config)
+    # test.test(global_config, sess)
 
 
 def check_arguments(FLAGS):

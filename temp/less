@@ -1,0 +1,1 @@
+n = text_line_dataset.map(to_instance).padded_batch(dataset_config.batch_size, tuple(padded_shapes_list)).make_one_shot_iterator().get_next()

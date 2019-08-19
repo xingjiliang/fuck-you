@@ -9,32 +9,40 @@ import tensorflow as tf
 import config
 
 
-def from_text_line_file(dataset_path, is_trainning, dataset_config):
+def from_text_line_file(dataset_config, is_trainning):
+    dataset_path = dataset_config.train_dataset_path if is_trainning else dataset_config.test_dataset_path
     text_line_dataset = tf.data.TextLineDataset(dataset_path)
-    padded_shapes_list = []
-    for feature in dataset_config.feature_index_type_map:
-        index, feature_nature, feature_type, attribute = dataset_config.feature_index_type_map[feature]
-        # ([], [], [], [], [], [], [], [50], [50], [50], [50], [], [], [])
-        padded_shapes_list.append([] if feature_nature == "single" or feature_nature == "label"
-                         else [dataset_config.max_sequence_size])
 
     def to_instance(line_tensor):
         split_line_tensor = tf.string_split([tf.string_strip(line_tensor)], "\t", False).values
         instance = []
-        for feature in dataset_config.feature_index_type_map:
-            index, feature_nature, feature_type, attribute = dataset_config.feature_index_type_map[feature]
-            instance.append(tf.string_to_number(split_line_tensor[index],
-                                                tf.int32 if feature_type == "discrete" else tf.float32
+        to_instance_input_feature_map = dataset_config.feature_config[config.INPUT_FEATURE_SPACE]
+        for to_instance_feature in to_instance_input_feature_map:
+            to_instance_feature_attribute_map = to_instance_input_feature_map[to_instance_feature]
+            to_instance_feature_index = to_instance_feature_attribute_map[config.INPUT_FEATURE_INDEX]
+            to_instance_feature_form = to_instance_feature_attribute_map[config.INPUT_FEATURE_FORM]
+            to_instance_feature_type = to_instance_feature_attribute_map[config.INPUT_FEATURE_TYPE]
+            instance.append(tf.string_to_number(split_line_tensor[to_instance_feature_index],
+                                                tf.int32 if to_instance_feature_type == "discrete" else tf.float32
                                                 )
-                            if feature_nature == "single" or feature_nature == "label"
+                            if to_instance_feature_form == "single" or to_instance_feature_form == "label"
                             else tf.string_to_number(
-                tf.string_split([tf.string_strip(split_line_tensor[index])], ",").values, tf.int32)
-            )
+                tf.string_split([tf.string_strip(split_line_tensor[to_instance_feature_index])], ",").values, tf.int32)
+                            )
         return instance
 
+    padded_shapes_list = []
+    input_feature_map = dataset_config.feature_config[config.INPUT_FEATURE_SPACE]
+    for feature in input_feature_map:
+        feature_attribute_map = input_feature_map[feature]
+        feature_form = feature_attribute_map[config.INPUT_FEATURE_FORM]
+        # ([], [], [], [], [], [], [], [50], [50], [50], [50], [], [], [])
+        padded_shapes_list.append([] if feature_form == "single" or feature_form == "label"
+                                  else [dataset_config.max_sequence_size])
+
     if is_trainning:
-        return text_line_dataset.map(to_instance).padded_batch(dataset_config.batch_size, tuple(padded_shapes_list)).\
-            repeat(dataset_config.epoch_num).\
+        return text_line_dataset.map(to_instance).padded_batch(dataset_config.batch_size, tuple(padded_shapes_list)). \
+            repeat(dataset_config.epoch_num). \
             shuffle(10000)
     else:
         return text_line_dataset.map(to_instance).padded_batch(10000, tuple(padded_shapes_list))

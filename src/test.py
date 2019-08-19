@@ -16,13 +16,13 @@ import data_utils
 import config
 
 
-def test(model_name, model_config, dataset_path, sess):
+def test(global_config, sess):
 
-    test_dataset = data_utils.from_text_line_file(dataset_path, False, model_config)
+    test_dataset = data_utils.from_text_line_file(global_config, False)
     sample = test_dataset.make_one_shot_iterator().get_next()
 
-    with tf.variable_scope(model_name, reuse=tf.AUTO_REUSE):
-        model = import_module(os.path.join(config.MODELS_PATH, model_name)).Model(model_config, sample, np.load(
+    with tf.variable_scope(global_config.model_name, reuse=tf.AUTO_REUSE):
+        model = import_module(os.path.join(config.MODELS_PATH, global_config.model_name)).Model(global_config, sample, np.load(
             config.INFO_INPUT_EMBEDDINGS_PATH), False)
         accuracy_num = 0
         batch_accuracy_num_node = tf.reduce_sum(tf.cast(tf.equal(model.labels, tf.arg_max(model.logits, 1)), tf.int32))
