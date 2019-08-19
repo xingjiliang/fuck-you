@@ -1,337 +1,331 @@
 {
   "input_space": {
     "c_loc1": {
-      "index": 177,
+      "index": 190,
       "form": "single",
       "feature_type": "discrete",
       "space": "city"
     },
     "c_lg": {
-      "index": 178,
+      "index": 193,
       "form": "single",
       "feature_type": "discrete",
       "space": "c_lg"
     },
     "c_hour": {
-      "index": 179,
+      "index": 194,
       "form": "single",
       "feature_type": "discrete",
       "space": "c_hour"
     },
     "c_slot": {
-      "index": 180,
+      "index": 195,
       "form": "single",
       "feature_type": "discrete",
       "space": "c_slot"
     },
     "c_pos": {
-      "index": 181,
+      "index": 196,
       "form": "single",
       "feature_type": "discrete",
       "space": "c_pos"
     },
     "i_edu": {
-      "index": 182,
+      "index": 198,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu"
     },
     "i_sal": {
-      "index": 183,
+      "index": 199,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal"
     },
     "i_wf1": {
-      "index": 184,
+      "index": 200,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf1"
     },
     "i_wf4": {
-      "index": 185,
+      "index": 203,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf4"
     },
     "i_wf5": {
-      "index": 186,
+      "index": 204,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf5"
     },
     "i_wf6": {
-      "index": 187,
+      "index": 205,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf6"
     },
     "i_wf7": {
-      "index": 188,
+      "index": 206,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf7"
     },
     "i_wf8": {
-      "index": 189,
+      "index": 207,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf8"
     },
     "i_wf9": {
-      "index": 190,
+      "index": 208,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf9"
     },
     "i_wf10": {
-      "index": 191,
+      "index": 209,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf10"
     },
     "i_wy": {
-      "index": 192,
+      "index": 213,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy"
     },
-    "i_titlen": {
-      "index": 193,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_titlen"
-    },
     "i_ploc1": {
-      "index": 194,
+      "index": 217,
       "form": "single",
       "feature_type": "discrete",
       "space": "city"
     },
     "i_ct2": {
-      "index": 195,
+      "index": 221,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_ct2"
     },
     "i_ct3": {
-      "index": 196,
+      "index": 222,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_ct3"
     },
     "i_sal_u_sal": {
-      "index": 203,
+      "index": 235,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal_u_sal"
     },
     "i_sal_u_edu": {
-      "index": 204,
+      "index": 236,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal_u_edu"
     },
     "i_sal_u_wy": {
-      "index": 205,
+      "index": 237,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal_u_wy"
     },
     "i_sal_u_age": {
-      "index": 206,
+      "index": 238,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal_u_age"
     },
     "i_sal_u_gd": {
-      "index": 207,
+      "index": 239,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal_u_gd"
     },
     "i_sal_u_nsal": {
-      "index": 208,
+      "index": 240,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_sal_u_nsal"
     },
     "i_edu_u_sal": {
-      "index": 209,
+      "index": 241,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu_u_sal"
     },
     "i_edu_u_edu": {
-      "index": 210,
+      "index": 242,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu_u_edu"
     },
     "i_edu_u_wy": {
-      "index": 211,
+      "index": 243,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu_u_wy"
     },
     "i_edu_u_age": {
-      "index": 212,
+      "index": 244,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu_u_age"
     },
     "i_edu_u_gd": {
-      "index": 213,
+      "index": 245,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu_u_gd"
     },
     "i_edu_u_nsal": {
-      "index": 214,
+      "index": 246,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_edu_u_nsal"
     },
     "i_wy_u_sal": {
-      "index": 215,
+      "index": 247,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy_u_sal"
     },
     "i_wy_u_edu": {
-      "index": 216,
+      "index": 248,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy_u_edu"
     },
     "i_wy_u_wy": {
-      "index": 217,
+      "index": 249,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy_u_wy"
     },
     "i_wy_u_age": {
-      "index": 218,
+      "index": 250,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy_u_age"
     },
     "i_wy_u_gd": {
-      "index": 219,
+      "index": 251,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy_u_gd"
     },
     "i_wy_u_nsal": {
-      "index": 220,
+      "index": 252,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wy_u_nsal"
     },
     "i_wf8_u_edu": {
-      "index": 221,
+      "index": 253,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf8_u_edu"
     },
     "i_wf8_u_age": {
-      "index": 222,
+      "index": 254,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf8_u_age"
     },
     "i_loc1_i_wf8": {
-      "index": 223,
+      "index": 255,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_loc1_i_wf8"
     },
     "i_wf10_u_age": {
-      "index": 224,
+      "index": 256,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf10_u_age"
     },
     "i_wf10_u_nsal": {
-      "index": 225,
+      "index": 257,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_wf10_u_nsal"
     },
     "i_loc1_i_wf10": {
-      "index": 226,
+      "index": 258,
       "form": "single",
       "feature_type": "discrete",
       "space": "i_loc1_i_wf10"
     },
     "u_wy": {
-      "index": 227,
+      "index": 272,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_wy"
     },
     "u_sal": {
-      "index": 228,
+      "index": 273,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_sal"
     },
     "u_edu": {
-      "index": 229,
+      "index": 274,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_edu"
     },
     "u_gd": {
-      "index": 230,
+      "index": 275,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_gd"
     },
     "u_src": {
-      "index": 231,
+      "index": 276,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_src"
     },
     "u_has_pic": {
-      "index": 232,
+      "index": 280,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_has_pic"
     },
     "u_has_photo": {
-      "index": 233,
+      "index": 281,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_has_photo"
     },
     "u_age_split": {
-      "index": 234,
+      "index": 282,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_age_split"
     },
     "u_has_npos": {
-      "index": 235,
+      "index": 286,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_has_npos"
     },
     "u_has_ltr": {
-      "index": 236,
+      "index": 291,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_has_ltr"
     },
     "u_has_eduexp": {
-      "index": 237,
+      "index": 294,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_has_eduexp"
     },
     "u_has_wkexp": {
-      "index": 238,
+      "index": 295,
       "form": "single",
       "feature_type": "discrete",
       "space": "u_has_wkexp"
@@ -340,168 +334,158 @@
       "index": -1,
       "form": "label",
       "feature_type": "discrete",
-      "space": "label_delivery"
+      "space": "u_has_wkexp"
     }
   },
   "feature_space": {
     "city": {
-      "input_dim": 5,
+      "input_dim": 1000,
       "embedding_dim": 10,
       "initializer": "tf.random_normal_initializer"
     },
     "c_lg": {
-      "input_dim": 5,
+      "input_dim": 2,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "c_hour": {
-      "input_dim": 5,
+      "input_dim": 24,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "c_slot": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "c_pos": {
-      "input_dim": 5,
+      "input_dim": 20,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_edu": {
-      "input_dim": 5,
+      "input_dim": 8,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_sal": {
-      "input_dim": 5,
+      "input_dim": 11,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf1": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf4": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf5": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf6": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf7": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf8": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf9": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wf10": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_wy": {
-      "input_dim": 5,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_titlen": {
-      "input_dim": 5,
+      "input_dim": 11,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "i_ct2": {
-      "input_dim": 5,
+      "input_dim": 51,
       "embedding_dim": 10,
       "initializer": "tf.random_normal_initializer"
     },
     "i_ct3": {
-      "input_dim": 5,
+      "input_dim": 1104,
       "embedding_dim": 10,
       "initializer": "tf.random_normal_initializer"
     },
     "u_wy": {
-      "input_dim": 5,
+      "input_dim": 8,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_sal": {
-      "input_dim": 5,
+      "input_dim": 11,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_edu": {
-      "input_dim": 5,
+      "input_dim": 10,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_gd": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 5,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_src": {
-      "input_dim": 5,
+      "input_dim": 50,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_has_pic": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_has_photo": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_age_split": {
-      "input_dim": 5,
+      "input_dim": 25,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_has_npos": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_has_ltr": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_has_eduexp": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_has_wkexp": {
-      "input_dim": 5,
+      "input_dim": 3,
       "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "label_delivery": {
-      "input_dim": 50,
-      "embedding_dim": 1,
       "initializer": "tf.contrib.layers.xavier_initializer"
     }
   }
