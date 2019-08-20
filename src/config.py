@@ -25,14 +25,13 @@ INPUT_FEATURE_DIM = 'input_dim'
 EMBEDDING_DIM = 'embedding_dim'
 INITIALIZER = 'initializer'
 
+
 class Configuration:
     def __init__(self, FLAGS):
         self.application_name = FLAGS.application_name
         self.model_name = FLAGS.model_name
         self.train_dataset_path = os.path.join(DATA_PATH, FLAGS.train_dataset_path)
         self.test_dataset_path = os.path.join(DATA_PATH, FLAGS.test_dataset_path)
-        self.feature_index_type_map = {}
-        self.attribute_raw_dim_map = {}
         # 对指定特征设置维度
         self.attribute_embedding_dim_map = {}
         self.from_model_config_file(os.path.join(RESOURCES_PATH, FLAGS.model_config_file))

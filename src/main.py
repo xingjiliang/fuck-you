@@ -14,8 +14,8 @@ def main(_):
         exit(1)
     global_config = config.Configuration(FLAGS)
     # print(global_config)
-    sess = train.train(global_config)
-    # test.test(global_config, sess)
+    train.train(global_config)
+    test.test(global_config)
 
 
 def check_arguments(FLAGS):
@@ -42,7 +42,8 @@ def _define_flags():
     flags.DEFINE_integer(name="epoch_num", short_name="e", default=None, help="训练集迭代次数")
     flags.DEFINE_integer(name="batch_size", short_name="b", default=None, help="batch_size")
     flags.DEFINE_float(name="learn_rate", short_name="l", default=None, help="学习率")
-    flags.DEFINE_string(name="config_file", short_name="c", default="youtube_deep_recall_model.cfg", help="模型配置文件")
+    flags.DEFINE_string(name="model_config_file", short_name="c", default="youtube_deep_recall_model.cfg", help="模型配置文件")
+    flags.DEFINE_string(name="feature_config_file", short_name="f", default="features.json", help="特征配置文件")
 
 
 if __name__ == "__main__":

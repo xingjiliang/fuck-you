@@ -16,20 +16,27 @@ import data_utils
 import config
 
 
-def test(global_config, sess):
+def test(global_config):
 
     test_dataset = data_utils.from_text_line_file(global_config, False)
     sample = test_dataset.make_one_shot_iterator().get_next()
 
     with tf.variable_scope(global_config.model_name, reuse=tf.AUTO_REUSE):
-        model = import_module(os.path.join(config.MODELS_PATH, global_config.model_name)).Model(global_config, sample, np.load(
+
+        model = import_module("models." + global_config.model_name).Model(global_config, sample, np.load(
             config.INFO_INPUT_EMBEDDINGS_PATH), False)
-        accuracy_num = 0
-        batch_accuracy_num_node = tf.reduce_sum(tf.cast(tf.equal(model.labels, tf.arg_max(model.logits, 1)), tf.int32))
-        fetches = [batch_accuracy_num_node, model.loss]
-        try:
-            while True:
-                batch_accuracy_num, loss = sess.run(fetches)
-                accuracy_num += batch_accuracy_num[0]
-        except tf.errors.OutOfRangeError:
-            print(accuracy_num)
+        saver = tf.train.Saver(max_to_keep=None)
+        save_path = os.path.join(config.MODEL_PARAMETERS_PATH, global_config.application_name) + '-1570'
+        batch_auc_tensor = tf.metrics.auc(model.labels, model.predictions, num_thresholds=20)
+
+        # batch_accuracy_num_node = tf.reduce_sum(tf.cast(tf.equal(model.labels, tf.arg_max(model.logits, 1)), tf.int32))
+        fetches = [batch_auc_tensor, model.loss]
+        with tf.Session() as sess:
+            sess.run(tf.local_variables_initializer())
+            saver.restore(sess, save_path)
+            try:
+                while True:
+                    batch_auc, loss = sess.run(fetches)
+                    print(batch_auc)
+            except tf.errors.OutOfRangeError:
+                print(batch_auc)

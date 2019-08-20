@@ -30,16 +30,17 @@ def train(global_config):
         save_path = os.path.join(config.MODEL_PARAMETERS_PATH, global_config.application_name)
         global_step = tf.train.get_or_create_global_step()
         op = tf.train.AdamOptimizer(global_config.learn_rate).minimize(model.loss, global_step=global_step)
+
         fetches = [model.loss, op]
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
+            sess.run(tf.local_variables_initializer())
             try:
                 while True:
                     loss, op = sess.run(fetches)
-                    print(loss)
+                    print("损失={}".format(loss))
             except tf.errors.OutOfRangeError:
                 saver.save(sess, save_path, global_step=global_step)
-    return sess
 
 # def main(_):
 #     pass

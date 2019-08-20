@@ -114,138 +114,6 @@
       "feature_type": "discrete",
       "space": "i_ct3"
     },
-    "i_sal_u_sal": {
-      "index": 235,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_sal_u_sal"
-    },
-    "i_sal_u_edu": {
-      "index": 236,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_sal_u_edu"
-    },
-    "i_sal_u_wy": {
-      "index": 237,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_sal_u_wy"
-    },
-    "i_sal_u_age": {
-      "index": 238,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_sal_u_age"
-    },
-    "i_sal_u_gd": {
-      "index": 239,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_sal_u_gd"
-    },
-    "i_sal_u_nsal": {
-      "index": 240,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_sal_u_nsal"
-    },
-    "i_edu_u_sal": {
-      "index": 241,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_edu_u_sal"
-    },
-    "i_edu_u_edu": {
-      "index": 242,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_edu_u_edu"
-    },
-    "i_edu_u_wy": {
-      "index": 243,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_edu_u_wy"
-    },
-    "i_edu_u_age": {
-      "index": 244,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_edu_u_age"
-    },
-    "i_edu_u_gd": {
-      "index": 245,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_edu_u_gd"
-    },
-    "i_edu_u_nsal": {
-      "index": 246,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_edu_u_nsal"
-    },
-    "i_wy_u_sal": {
-      "index": 247,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wy_u_sal"
-    },
-    "i_wy_u_edu": {
-      "index": 248,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wy_u_edu"
-    },
-    "i_wy_u_wy": {
-      "index": 249,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wy_u_wy"
-    },
-    "i_wy_u_age": {
-      "index": 250,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wy_u_age"
-    },
-    "i_wy_u_gd": {
-      "index": 251,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wy_u_gd"
-    },
-    "i_wy_u_nsal": {
-      "index": 252,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wy_u_nsal"
-    },
-    "i_wf8_u_edu": {
-      "index": 253,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wf8_u_edu"
-    },
-    "i_wf8_u_age": {
-      "index": 254,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wf8_u_age"
-    },
-    "i_wf10_u_age": {
-      "index": 256,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wf10_u_age"
-    },
-    "i_wf10_u_nsal": {
-      "index": 257,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "i_wf10_u_nsal"
-    },
     "u_wy": {
       "index": 272,
       "form": "single",
@@ -269,12 +137,6 @@
       "form": "single",
       "feature_type": "discrete",
       "space": "u_gd"
-    },
-    "u_src": {
-      "index": 276,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "u_src"
     },
     "u_has_pic": {
       "index": 280,
@@ -333,7 +195,8 @@
     },
     "c_lg": {
       "input_dim": 2,
-      "embedding_dim": 5,      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "c_hour": {
       "input_dim": 24,
@@ -446,7 +309,7 @@
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_age_split": {
-      "input_dim": 25,
+      "input_dim": 26,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
@@ -467,116 +330,6 @@
     },
     "u_has_wkexp": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_sal_u_sal": {
-      "input_dim": 101,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_sal_u_edu": {
-      "input_dim": 91,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_sal_u_wy": {
-      "input_dim": 71,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_sal_u_age": {
-      "input_dim": 251,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_sal_u_gd": {
-      "input_dim": 21,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_sal_u_nsal": {
-      "input_dim": 101,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_sal": {
-      "input_dim": 71,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_edu": {
-      "input_dim": 64,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_wy": {
-      "input_dim": 50,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_age": {
-      "input_dim": 176,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_gd": {
-      "input_dim": 15,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_nsal": {
-      "input_dim": 71,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_sal": {
-      "input_dim": 101,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_edu": {
-      "input_dim": 91,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_wy": {
-      "input_dim": 71,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_age": {
-      "input_dim": 251,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_gd": {
-      "input_dim": 21,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_nsal": {
-      "input_dim": 101,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf8_u_edu": {
-      "input_dim": 19,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf8_u_age": {
-      "input_dim": 51,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf10_u_age": {
-      "input_dim": 5,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf10_u_nsal": {
-      "input_dim": 5,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     }
