@@ -26,16 +26,17 @@ def test(global_config):
         model = import_module("models." + global_config.model_name).Model(global_config, sample, np.load(
             config.INFO_INPUT_EMBEDDINGS_PATH), False)
         saver = tf.train.Saver(max_to_keep=None)
-        save_path = os.path.join(config.MODEL_PARAMETERS_PATH, global_config.application_name) + '-1570'
-        batch_auc_tensor = tf.metrics.auc(model.labels, model.predictions, num_thresholds=20)
+        save_path = "{}".format(os.path.join(config.MODEL_PARAMETERS_PATH, global_config.application_name))
+        auc_value, auc_op = tf.metrics.auc(model.labels, model.predictions)
 
         # batch_accuracy_num_node = tf.reduce_sum(tf.cast(tf.equal(model.labels, tf.arg_max(model.logits, 1)), tf.int32))
-        fetches = [batch_auc_tensor, model.loss]
+        fetches = [auc_value, model.loss]
         with tf.Session() as sess:
             sess.run(tf.local_variables_initializer())
             saver.restore(sess, save_path)
             try:
                 while True:
+                    sess.run(auc_op)
                     batch_auc, loss = sess.run(fetches)
                     print(batch_auc)
             except tf.errors.OutOfRangeError:

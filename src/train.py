@@ -31,16 +31,21 @@ def train(global_config):
         global_step = tf.train.get_or_create_global_step()
         op = tf.train.AdamOptimizer(global_config.learn_rate).minimize(model.loss, global_step=global_step)
 
-        fetches = [model.loss, op]
+        auc_op_ts, auc_value_ts = tf.metrics.auc(model.labels, model.predictions)
+
+        fetches = [model.loss, auc_value_ts, model.labels, model.predictions, op]
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             sess.run(tf.local_variables_initializer())
             try:
                 while True:
-                    loss, op = sess.run(fetches)
-                    print("损失={}".format(loss))
+                    sess.run(auc_op_ts)
+                    loss, auc, labels, preds, op = sess.run(fetches)
+                    print("损失={},AUC={}".format(loss, auc))
+                    print("标签={}".format(np.concatenate([labels.reshape([-1, 1]), preds.reshape([-1, 1])], 1)))
             except tf.errors.OutOfRangeError:
-                saver.save(sess, save_path, global_step=global_step)
+                saver.save(sess, save_path)
+                # saver.save(sess, save_path, global_step=global_step)
 
 # def main(_):
 #     pass
