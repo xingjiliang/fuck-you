@@ -2,7 +2,7 @@
 """
 用于对原始数据进行处理
 """
-
+import os
 import numpy as np
 import tensorflow as tf
 
@@ -11,7 +11,8 @@ import config
 
 def from_text_line_file(dataset_config, is_trainning):
     dataset_path = dataset_config.train_dataset_path if is_trainning else dataset_config.test_dataset_path
-    text_line_dataset = tf.data.TextLineDataset(dataset_path)
+    text_line_dataset = \
+        tf.data.TextLineDataset(dataset_path if os.path.isfile(dataset_path) else os.listdir(dataset_path))
 
     def to_instance(line_tensor):
         split_line_tensor = tf.string_split([tf.string_strip(line_tensor)], "\t", False).values
