@@ -41,9 +41,11 @@ def from_text_line_file(dataset_config, is_trainning):
                                   else [dataset_config.max_sequence_size])
 
     if is_trainning:
-        return text_line_dataset.map(to_instance).padded_batch(dataset_config.batch_size, tuple(padded_shapes_list)). \
-            repeat(dataset_config.epoch_num). \
-            shuffle(10000)
+        return text_line_dataset.map(to_instance)\
+            .shuffle(dataset_config.shuffle_buffer_size)\
+            .padded_batch(dataset_config.batch_size, tuple(padded_shapes_list))\
+            .repeat(dataset_config.epoch_num)
+
     else:
         return text_line_dataset.map(to_instance).padded_batch(10000, tuple(padded_shapes_list))
 
