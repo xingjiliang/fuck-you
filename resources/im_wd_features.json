@@ -116,133 +116,133 @@
     },
     "i_sal_u_sal": {
       "index": 235,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_sal_u_sal"
     },
     "i_sal_u_edu": {
       "index": 236,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_sal_u_edu"
     },
     "i_sal_u_wy": {
       "index": 237,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_sal_u_wy"
     },
     "i_sal_u_age": {
       "index": 238,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_sal_u_age"
     },
     "i_sal_u_gd": {
       "index": 239,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_sal_u_gd"
     },
     "i_sal_u_nsal": {
       "index": 240,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_sal_u_nsal"
     },
     "i_edu_u_sal": {
       "index": 241,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu_u_sal"
     },
     "i_edu_u_edu": {
       "index": 242,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu_u_edu"
     },
     "i_edu_u_wy": {
       "index": 243,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu_u_wy"
     },
     "i_edu_u_age": {
       "index": 244,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu_u_age"
     },
     "i_edu_u_gd": {
       "index": 245,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu_u_gd"
     },
     "i_edu_u_nsal": {
       "index": 246,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu_u_nsal"
     },
     "i_wy_u_sal": {
       "index": 247,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy_u_sal"
     },
     "i_wy_u_edu": {
       "index": 248,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy_u_edu"
     },
     "i_wy_u_wy": {
       "index": 249,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy_u_wy"
     },
     "i_wy_u_age": {
       "index": 250,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy_u_age"
     },
     "i_wy_u_gd": {
       "index": 251,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy_u_gd"
     },
     "i_wy_u_nsal": {
       "index": 252,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy_u_nsal"
     },
     "i_wf8_u_edu": {
       "index": 253,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf8_u_edu"
     },
     "i_wf8_u_age": {
       "index": 254,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf8_u_age"
     },
     "i_wf10_u_age": {
       "index": 256,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf10_u_age"
     },
     "i_wf10_u_nsal": {
       "index": 257,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf10_u_nsal"
     },

@@ -5,10 +5,6 @@ import config
 
 
 class Model:
-    """
-    wide部分:交叉特征、部分离散特征
-    deep部分:连续特征、离散特征embedding
-    """
 
     def __init__(self, global_config, sample, info_input_embeddings, is_training):
         self.global_config = global_config

@@ -33,7 +33,6 @@ class Model:
                                                                          initializer=initializer
                                                                          )
 
-
         self.discrete_feature_embeddings_list = []
         for input_feature in input_space_map:
             input_feature_attribute_map = input_space_map[input_feature]
@@ -45,7 +44,10 @@ class Model:
             tensor = tf.nn.embedding_lookup(self.feature_embeddings_map[feature_space],
                                             self.feature_value_map[input_feature])
             # 'div' if attribute == "info_input_embeddings" else 'mod')
-            self.discrete_feature_embeddings_list.append(tensor)
+            if form == 'single':
+                self.discrete_feature_embeddings_list.append(tensor)
+            if form == 'cross':
+                self.final_vector_list.append(tensor)  # 这里tensor必须是[B,1]的shape才能成功
 
         self.concatenated_embeddings = tf.concat(self.discrete_feature_embeddings_list, 1, "concatenated_embeddings")
         temp_hidden_vector = self.concatenated_embeddings
@@ -61,10 +63,11 @@ class Model:
                                                      tf.float32,
                                                      initializer=tf.contrib.layers.xavier_initializer())
             temp_vector = tf.add(tf.matmul(temp_hidden_vector, temp_hidden_layer), temp_hidden_layer_bias)
-            temp_hidden_vector = tf.nn.relu(temp_vector) if hidden_layer_size != 1 else temp_vector
+            temp_hidden_vector = tf.nn.relu(temp_vector)
             pre_layer_size = hidden_layer_size
             self.hidden_vector_list.append(temp_hidden_vector)
-        self.logits = temp_hidden_vector
+        # 这里直接reduce_sum即可
+        self.logits = tf.reduce_sum(self.final_vector_list.append(temp_hidden_vector), 0)
         self.predictions = tf.where(self.logits < 0, tf.zeros_like(self.logits), tf.ones_like(self.logits))
         # 输入的logits应未被sigmoid归一化到(0,1)区间内
         sigmoid_cross_entropy_loss = tf.nn.sigmoid_cross_entropy_with_logits(
