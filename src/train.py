@@ -6,6 +6,7 @@
 通过使用make_initializable_iterator方便地切换数据集……
 """
 import os
+import time
 from importlib import import_module
 
 import numpy as np
@@ -43,6 +44,7 @@ def train(global_config):
                     loss, auc, labels, preds, op = sess.run(fetches)
                     print("损失={},AUC={}".format(loss, auc))
                     print("标签={}".format(np.concatenate([labels.reshape([-1, 1]), preds.reshape([-1, 1])], 1)))
+                    time.sleep(1)
             except tf.errors.OutOfRangeError:
                 saver.save(sess, save_path)
                 # saver.save(sess, save_path, global_step=global_step)

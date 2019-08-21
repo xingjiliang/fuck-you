@@ -8,4 +8,4 @@ class MyFlags:
         self.batch_size = 10
         self.learn_rate = 1.0
         self.model_config_file = "im_click_rate_prediction_model.cfg"
-        self.feature_config_file = "im_features.json"
+        self.feature_config_file = "im_features_no_cross.json"
