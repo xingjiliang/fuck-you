@@ -2,6 +2,7 @@
 import configparser
 import os
 import json
+import logging
 
 from absl import flags
 from absl import app
@@ -24,6 +25,10 @@ FEATURE_SPACE = 'space'
 INPUT_FEATURE_DIM = 'input_dim'
 EMBEDDING_DIM = 'embedding_dim'
 INITIALIZER = 'initializer'
+
+logging.basicConfig(level=logging.DEBUG,
+                    format="[%(asctime)s %(levelname)s] %(message)s",
+                    datefmt='%Y-%m-%d %H:%M:%S')
 
 
 class Configuration:

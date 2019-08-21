@@ -16,8 +16,8 @@ from absl import flags
 import data_utils
 import config
 
-
 FLAGS = flags.FLAGS
+LOG = config.logging.getLogger('train')
 
 
 def train(global_config):
@@ -42,9 +42,7 @@ def train(global_config):
                 while True:
                     sess.run(auc_op_ts)
                     loss, auc, labels, preds, op = sess.run(fetches)
-                    print("损失={},AUC={}".format(loss, auc))
-                    print("标签={}".format(np.concatenate([labels.reshape([-1, 1]), preds.reshape([-1, 1])], 1)))
-                    time.sleep(1)
+                    LOG.info('损失={},AUC={}'.format(loss, auc))
             except tf.errors.OutOfRangeError:
                 saver.save(sess, save_path)
                 # saver.save(sess, save_path, global_step=global_step)

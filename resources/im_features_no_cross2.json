@@ -1,0 +1,337 @@
+{
+  "input_space": {
+    "c_loc1": {
+      "index": 190,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "city"
+    },
+    "c_lg": {
+      "index": 193,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "c_lg"
+    },
+    "c_hour": {
+      "index": 194,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "c_hour"
+    },
+    "c_slot": {
+      "index": 195,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "c_slot"
+    },
+    "c_pos": {
+      "index": 196,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "c_pos"
+    },
+    "i_edu": {
+      "index": 198,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_edu"
+    },
+    "i_sal": {
+      "index": 199,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "salary"
+    },
+    "i_wf1": {
+      "index": 200,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf1"
+    },
+    "i_wf4": {
+      "index": 203,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf4"
+    },
+    "i_wf5": {
+      "index": 204,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf5"
+    },
+    "i_wf6": {
+      "index": 205,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf6"
+    },
+    "i_wf7": {
+      "index": 206,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf7"
+    },
+    "i_wf8": {
+      "index": 207,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf8"
+    },
+    "i_wf9": {
+      "index": 208,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf9"
+    },
+    "i_wf10": {
+      "index": 209,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wf10"
+    },
+    "i_wy": {
+      "index": 213,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_wy"
+    },
+    "i_ploc1": {
+      "index": 217,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "city"
+    },
+    "i_ct2": {
+      "index": 221,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_ct2"
+    },
+    "i_ct3": {
+      "index": 222,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "i_ct3"
+    },
+    "u_wy": {
+      "index": 272,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_wy"
+    },
+    "u_sal": {
+      "index": 273,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "salary"
+    },
+    "u_edu": {
+      "index": 274,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_edu"
+    },
+    "u_gd": {
+      "index": 275,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_gd"
+    },
+    "u_has_pic": {
+      "index": 280,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_has_pic"
+    },
+    "u_has_photo": {
+      "index": 281,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_has_photo"
+    },
+    "u_age_split": {
+      "index": 282,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_age_split"
+    },
+    "u_has_npos": {
+      "index": 286,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_has_npos"
+    },
+    "u_has_ltr": {
+      "index": 291,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_has_ltr"
+    },
+    "u_has_eduexp": {
+      "index": 294,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_has_eduexp"
+    },
+    "u_has_wkexp": {
+      "index": 295,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "u_has_wkexp"
+    },
+    "label_delivery": {
+      "index": -1,
+      "form": "label",
+      "feature_type": "discrete",
+      "space": "u_has_wkexp"
+    }
+  },
+  "feature_space": {
+    "city": {
+      "input_dim": 1000,
+      "embedding_dim": 10,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "c_lg": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "c_hour": {
+      "input_dim": 24,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "c_slot": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "c_pos": {
+      "input_dim": 15,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_edu": {
+      "input_dim": 10,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "salary": {
+      "input_dim": 11,
+      "embedding_dim": 10,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf1": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf4": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf5": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf6": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf7": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf8": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf9": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wf10": {
+      "input_dim": 2,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_wy": {
+      "input_dim": 8,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "i_ct2": {
+      "input_dim": 51,
+      "embedding_dim": 10,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_ct3": {
+      "input_dim": 1104,
+      "embedding_dim": 10,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "u_wy": {
+      "input_dim": 8,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_edu": {
+      "input_dim": 10,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_gd": {
+      "input_dim": 3,
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_src": {
+      "input_dim": 50,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_has_pic": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_has_photo": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_age_split": {
+      "input_dim": 26,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_has_npos": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_has_ltr": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_has_eduexp": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "u_has_wkexp": {
+      "input_dim": 3,
+      "embedding_dim": 3,
+      "initializer": "tf.contrib.layers.xavier_initializer"
+    }
+  }
+}
