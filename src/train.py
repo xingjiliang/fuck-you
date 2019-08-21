@@ -31,9 +31,9 @@ def train(global_config):
         global_step = tf.train.get_or_create_global_step()
         op = tf.train.AdamOptimizer(global_config.learn_rate).minimize(model.loss, global_step=global_step)
 
-        auc_op_ts, auc_value_ts = tf.metrics.auc(model.labels, model.predictions)
+        auc_op_ts, auc_value_ts = tf.metrics.auc(model.labels, tf.sigmoid(model.logits))
 
-        fetches = [model.loss, auc_value_ts, model.labels, model.predictions, op]
+        fetches = [model.loss, auc_value_ts, model.labels, tf.sigmoid(model.logits), op]
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             sess.run(tf.local_variables_initializer())
