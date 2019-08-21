@@ -56,7 +56,7 @@ class Model:
                 self.feature_embeddings_list.append(tensor)
             elif feature_type == 'continuous':
                 # todo 确认self.feature_value_map[input_feature]的shape是否为[B, 1]
-                self.feature_embeddings_list.append(self.feature_value_map[input_feature])
+                self.feature_embeddings_list.append(tf.reshape(self.feature_value_map[input_feature], [-1, 1]))
         print(self.feature_embeddings_list)
         self.concatenated_embeddings = tf.concat(self.feature_embeddings_list, 1, "concatenated_embeddings")
         temp_hidden_vector = self.concatenated_embeddings
