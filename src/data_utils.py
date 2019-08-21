@@ -8,6 +8,7 @@ import numpy as np
 import tensorflow as tf
 
 import config
+import util.tensor_ops as tensor_ops
 
 
 def from_text_line_file(dataset_config, is_trainning):
@@ -74,6 +75,10 @@ def to_info_embedding_array(file_path):
     for line in open(file_path):
         info_embedding_list.append(line.strip("\r\n").split(" ")[1:])
     return np.array(info_embedding_list, dtype='float32')
+
+
+def min_max_scaling(x, min_value, max_value):
+    return (x - min_value) / (max_value - min_value)
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ def main(_):
     global_config = config.Configuration(FLAGS)
     # print(global_config)
     train.train(global_config)
-    # test.test(global_config)
+    test.test(global_config)
 
 
 def check_arguments(FLAGS):

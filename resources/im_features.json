@@ -333,7 +333,8 @@
     },
     "c_lg": {
       "input_dim": 2,
-      "embedding_dim": 5,      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "c_hour": {
       "input_dim": 24,

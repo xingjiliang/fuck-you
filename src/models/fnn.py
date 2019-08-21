@@ -2,6 +2,7 @@
 import tensorflow as tf
 
 import config
+import data_utils
 
 
 class Model:
@@ -11,8 +12,17 @@ class Model:
 
         self.feature_value_map = {}
         input_space_map = global_config.feature_config['input_space']
-        for i, feature in enumerate(input_space_map):
-            self.feature_value_map[feature] = sample[i]
+        for i, input_feature in enumerate(input_space_map):
+            if config.INPUT_FEATURE_OPS not in input_space_map[input_feature]:
+                self.feature_value_map[input_feature] = sample[i]
+            else:
+                self.feature_value_map[input_feature] = \
+                    data_utils.tensor_ops.ops[input_space_map[input_feature][config.INPUT_FEATURE_OPS]] \
+                        (sample[i], input_space_map[input_feature][config.FUNC_PARAMS])
+            # todo 未来换成列表
+            # self.feature_value_map[input_feature] = sample[i] \
+            #     if config.INPUT_FEATURE_OPS not in input_space_map[input_feature] \
+            #     else data_utils.tensor_ops.ops[input_space_map[input_feature][config.INPUT_FEATURE_OPS]]
 
         feature_space_map = global_config.feature_config['feature_space']
         self.feature_embeddings_map = {}
@@ -22,28 +32,32 @@ class Model:
             exec('initializer = ' + feature_space_attribute_map[config.INITIALIZER] + '()')
             self.feature_embeddings_map[feature_space] = tf.get_variable(name=feature_space + "_embeddings",
                                                                          shape=[feature_space_attribute_map[
-                                                                              config.INPUT_FEATURE_DIM],
-                                                                          feature_space_attribute_map[
-                                                                              config.EMBEDDING_DIM]],
+                                                                                    config.INPUT_FEATURE_DIM],
+                                                                                feature_space_attribute_map[
+                                                                                    config.EMBEDDING_DIM]],
                                                                          dtype=tf.float32,
                                                                          initializer=initializer
                                                                          )
 
-
-        self.discrete_feature_embeddings_list = []
+        self.feature_embeddings_list = []
         for input_feature in input_space_map:
             input_feature_attribute_map = input_space_map[input_feature]
             form = input_feature_attribute_map[config.INPUT_FEATURE_FORM]
+            feature_type = input_feature_attribute_map[config.INPUT_FEATURE_TYPE]
             feature_space = input_feature_attribute_map[config.FEATURE_SPACE]
             if form == "label":
                 self.labels = self.feature_value_map[input_feature]
                 continue
-            tensor = tf.nn.embedding_lookup(self.feature_embeddings_map[feature_space],
-                                            self.feature_value_map[input_feature])
-            # 'div' if attribute == "info_input_embeddings" else 'mod')
-            self.discrete_feature_embeddings_list.append(tensor)
+            if feature_type == 'discrete':
+                tensor = tf.nn.embedding_lookup(self.feature_embeddings_map[feature_space],
+                                                self.feature_value_map[input_feature])
+                # 'div' if attribute == "info_input_embeddings" else 'mod')
+                self.feature_embeddings_list.append(tensor)
+            elif feature_type == 'continuous':
+                # todo 确认self.feature_value_map[input_feature]的shape是否为[B, 1]
+                self.feature_embeddings_list.append(self.feature_value_map[input_feature])
 
-        self.concatenated_embeddings = tf.concat(self.discrete_feature_embeddings_list, 1, "concatenated_embeddings")
+        self.concatenated_embeddings = tf.concat(self.feature_embeddings_list, 1, "concatenated_embeddings")
         temp_hidden_vector = self.concatenated_embeddings
         pre_layer_size = temp_hidden_vector.shape[1]
         self.hidden_vector_list = []
