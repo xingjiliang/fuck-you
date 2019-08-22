@@ -40,7 +40,7 @@ def from_text_line_file(dataset_config, is_trainning):
         feature_attribute_map = input_feature_map[feature]
         feature_form = feature_attribute_map[config.INPUT_FEATURE_FORM]
         # ([], [], [], [], [], [], [], [50], [50], [50], [50], [], [], [])
-        padded_shapes_list.append([] if feature_form == "single" or feature_form == "label"
+        padded_shapes_list.append([] if feature_form == "single" or feature_form == "label" or feature_form == 'cross'
                                   else [dataset_config.max_sequence_size])
 
     if is_trainning:
