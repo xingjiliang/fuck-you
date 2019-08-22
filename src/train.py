@@ -34,17 +34,20 @@ def train(global_config):
 
         auc_op_ts, auc_value_ts = tf.metrics.auc(model.labels, tf.sigmoid(model.logits))
 
-        fetches = [model.loss, auc_value_ts, model.labels, tf.sigmoid(model.logits), op]
+        fetches = [global_step, model.loss, auc_value_ts, model.labels, tf.sigmoid(model.logits), op]
         with tf.Session() as sess:
             sess.run(tf.global_variables_initializer())
             sess.run(tf.local_variables_initializer())
             try:
                 while True:
                     sess.run(auc_op_ts)
-                    loss, auc, labels, preds, op = sess.run(fetches)
-                    LOG.info('损失={},AUC={}'.format(loss, auc))
+                    step, loss, auc, labels, preds, op = sess.run(fetches)
+                    LOG.info('global_step={}, loss={}, AUC={}'.format(step, loss, auc))
+                    if step % 10000 == 0:
+                        saved_path = saver.save(sess, save_path, global_step)
+                        LOG.info('model parameters have been saved to {}'.format(saved_path))
             except tf.errors.OutOfRangeError:
-                saver.save(sess, save_path)
+                saver.save(sess, save_path, global_step)
                 # saver.save(sess, save_path, global_step=global_step)
 
 # def main(_):
