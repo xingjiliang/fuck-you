@@ -1,0 +1,304 @@
+{
+  "input_space": {
+    "roiapppv": {
+      "index": 0,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":9.0, "min_value":0.0}
+    },
+    "appdelivery": {
+      "index": 1,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":9.0, "min_value":0.0}
+    },
+    "appim": {
+      "index": 2,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":6.0, "min_value":0.0}
+    },
+    "apptel": {
+      "index": 3,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":5.0, "min_value":0.0}
+    },
+    "allappclick": {
+      "index": 4,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":51.0, "min_value":0.0}
+    },
+    "allappimcr": {
+      "index": 5,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allappcvr": {
+      "index": 6,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allapptelcr": {
+      "index": 7,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_ctr": {
+      "index": 12,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_cvr": {
+      "index": 13,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_clicknum": {
+      "index": 14,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":35.0, "min_value":0.0}
+    },
+    "all_dlyn": {
+      "index": 15,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":11.0, "min_value":0.0}
+    },
+    "imcnt": {
+      "index": 16,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":8.0, "min_value":0.0}
+    },
+    "telcnt": {
+      "index": 17,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":7.0, "min_value":0.0}
+    },
+    "rec_imcr": {
+      "index": 18,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "i_rctn": {
+      "index": 143,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":10.0, "min_value":0.0}
+    },
+    "i_add": {
+      "index": 144,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":100.0, "min_value":0.0}
+    },
+    "u_p_local": {
+      "index": 149,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":124.0, "min_value":0.0}
+    },
+    "u_p_cate": {
+      "index": 150,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":55.0, "min_value":0.0}
+    },
+    "u_p_salary": {
+      "index": 151,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":55.0, "min_value":0.0}
+    },
+    "u_p_edu": {
+      "index": 152,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":111.0, "min_value":0.0}
+    },
+    "u_p_exp": {
+      "index": 153,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":111.0, "min_value":0.0}
+    },
+    "u_p_welfare1": {
+      "index": 154,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":60.0, "min_value":0.0}
+    },
+    "u_p_welfare4": {
+      "index": 157,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":32.0, "min_value":0.0}
+    },
+    "u_p_welfare5": {
+      "index": 158,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":39.0, "min_value":0.0}
+    },
+    "u_p_welfare6": {
+      "index": 159,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":38.0, "min_value":0.0}
+    },
+    "u_p_welfare7": {
+      "index": 160,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":63.0, "min_value":0.0}
+    },
+    "u_p_welfare8": {
+      "index": 161,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":74.0, "min_value":0.0}
+    },
+    "u_p_welfare9": {
+      "index": 162,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":44.0, "min_value":0.0}
+    },
+    "u_p_welfare10": {
+      "index": 163,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":74.0, "min_value":0.0}
+    },
+    "user_info_post_distance": {
+      "index": 173,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":8000.0, "min_value":0}
+    },
+    "u_adday": {
+      "index": 175,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":152.0, "min_value":0}
+    },
+    "u_upday": {
+      "index": 176,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":6.0, "min_value":0}
+    },
+    "i_titlen": {
+      "index": 214,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":12.0, "min_value":0.0}
+    },
+    "info_all_ctr_has_value": {
+      "index": 300,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_all_ctr_has_value"
+    },
+    "info_all_cvr_has_value": {
+      "index": 301,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_all_cvr_has_value"
+    },
+    "info_rec_imcr_has_value": {
+      "index": 302,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_rec_imcr_has_value"
+    },
+    "user_allappimcr_has_value": {
+      "index": 303,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allappimcr_has_value"
+    },
+    "user_allappcvr_has_value": {
+      "index": 304,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allappcvr_has_value"
+    },
+    "user_allapptelcr_has_value": {
+      "index": 305,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allapptelcr_has_value"
+    },
+    "label_delivery": {
+      "index": 306,
+      "form": "label",
+      "feature_type": "discrete",
+      "space": "u_has_wkexp"
+    }
+  },
+  "feature_space": {
+    "info_all_ctr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "info_all_cvr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "info_rec_imcr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "user_allappimcr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "user_allappcvr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "user_allapptelcr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    }
+  }
+}

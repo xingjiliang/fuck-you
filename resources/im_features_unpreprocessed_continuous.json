@@ -1,5 +1,170 @@
 {
   "input_space": {
+    "roiapppv": {
+      "index": 0,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "appdelivery": {
+      "index": 1,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "appim": {
+      "index": 2,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "apptel": {
+      "index": 3,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allappclick": {
+      "index": 4,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allappimcr": {
+      "index": 5,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allappcvr": {
+      "index": 6,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allapptelcr": {
+      "index": 7,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_ctr": {
+      "index": 12,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_cvr": {
+      "index": 13,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_clicknum": {
+      "index": 14,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_dlyn": {
+      "index": 15,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "imcnt": {
+      "index": 16,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "telcnt": {
+      "index": 17,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "rec_imcr": {
+      "index": 18,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "i_rctn": {
+      "index": 143,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "i_add": {
+      "index": 144,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_local": {
+      "index": 149,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_cate": {
+      "index": 150,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_salary": {
+      "index": 151,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_edu": {
+      "index": 152,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_exp": {
+      "index": 153,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare1": {
+      "index": 154,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare4": {
+      "index": 157,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare5": {
+      "index": 158,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare6": {
+      "index": 159,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare7": {
+      "index": 160,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare8": {
+      "index": 161,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare9": {
+      "index": 162,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_p_welfare10": {
+      "index": 163,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "user_info_post_distance": {
+      "index": 173,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_adday": {
+      "index": 175,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "u_upday": {
+      "index": 176,
+      "form": "single",
+      "feature_type": "continuous"
+    },
     "c_loc1": {
       "index": 190,
       "form": "single",
@@ -96,6 +261,11 @@
       "feature_type": "discrete",
       "space": "i_wy"
     },
+    "i_titlen": {
+      "index": 214,
+      "form": "single",
+      "feature_type": "continuous"
+    },
     "i_ploc1": {
       "index": 217,
       "form": "single",
@@ -180,8 +350,44 @@
       "feature_type": "discrete",
       "space": "u_has_wkexp"
     },
+    "info_all_ctr_has_value": {
+      "index": 300,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_all_ctr_has_value"
+    },
+    "info_all_cvr_has_value": {
+      "index": 301,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_all_cvr_has_value"
+    },
+    "info_rec_imcr_has_value": {
+      "index": 302,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_rec_imcr_has_value"
+    },
+    "user_allappimcr_has_value": {
+      "index": 303,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allappimcr_has_value"
+    },
+    "user_allappcvr_has_value": {
+      "index": 304,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allappcvr_has_value"
+    },
+    "user_allapptelcr_has_value": {
+      "index": 305,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allapptelcr_has_value"
+    },
     "label_delivery": {
-      "index": -1,
+      "index": 306,
       "form": "label",
       "feature_type": "discrete",
       "space": "u_has_wkexp"
@@ -332,6 +538,36 @@
       "input_dim": 3,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
+    },
+    "info_all_ctr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "info_all_cvr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "info_rec_imcr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "user_allappimcr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "user_allappcvr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "user_allapptelcr_has_value": {
+      "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     }
   }
 }
