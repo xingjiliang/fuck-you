@@ -28,7 +28,7 @@ def from_text_line_file(dataset_config, is_trainning):
             instance.append(tf.string_to_number(split_line_tensor[to_instance_feature_index],
                                                 tf.int32 if to_instance_feature_type == "discrete" else tf.float32
                                                 )
-                            if to_instance_feature_form == "single" or to_instance_feature_form == "label"
+                            if to_instance_feature_form == "single" or to_instance_feature_form == "label" or to_instance_feature_form == 'cross'
                             else tf.string_to_number(
                 tf.string_split([tf.string_strip(split_line_tensor[to_instance_feature_index])], ",").values, tf.int32)
                             )
