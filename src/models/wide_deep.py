@@ -40,6 +40,7 @@ class Model:
                                                                          )
 
         self.discrete_feature_embeddings_list = []
+        self.final_vector_list = []
         for input_feature in input_space_map:
             input_feature_attribute_map = input_space_map[input_feature]
             form = input_feature_attribute_map[config.INPUT_FEATURE_FORM]
