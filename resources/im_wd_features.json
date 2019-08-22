@@ -223,7 +223,7 @@
       "index": 190,
       "form": "cross",
       "feature_type": "discrete",
-      "space": "city"
+      "space": "c_loc1"
     },
     "c_lg": {
       "index": 193,
@@ -259,7 +259,7 @@
       "index": 199,
       "form": "cross",
       "feature_type": "discrete",
-      "space": "salary"
+      "space": "i_sal"
     },
     "i_wf1": {
       "index": 200,
@@ -326,7 +326,7 @@
       "index": 217,
       "form": "cross",
       "feature_type": "discrete",
-      "space": "city"
+      "space": "i_ploc1"
     },
     "i_ct2": {
       "index": 221,
@@ -350,7 +350,7 @@
       "index": 273,
       "form": "cross",
       "feature_type": "discrete",
-      "space": "salary"
+      "space": "u_sal"
     },
     "u_edu": {
       "index": 274,
@@ -450,150 +450,160 @@
     }
   },
   "feature_space": {
-    "city": {
+    "c_loc1": {
       "input_dim": 1000,
-      "embedding_dim": 10,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_ploc1": {
+      "input_dim": 1000,
+      "embedding_dim": 1,
       "initializer": "tf.random_normal_initializer"
     },
     "c_lg": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "c_hour": {
       "input_dim": 24,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "c_slot": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "c_pos": {
       "input_dim": 15,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_edu": {
       "input_dim": 10,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
-    "salary": {
+    "i_sal": {
       "input_dim": 11,
-      "embedding_dim": 10,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "u_sal": {
+      "input_dim": 11,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf1": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf4": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf5": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf6": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf7": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf8": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf9": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wf10": {
       "input_dim": 2,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_wy": {
       "input_dim": 8,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "i_ct2": {
       "input_dim": 51,
-      "embedding_dim": 10,
+      "embedding_dim": 1,
       "initializer": "tf.random_normal_initializer"
     },
     "i_ct3": {
       "input_dim": 1104,
-      "embedding_dim": 10,
+      "embedding_dim": 1,
       "initializer": "tf.random_normal_initializer"
     },
     "u_wy": {
       "input_dim": 8,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_edu": {
       "input_dim": 10,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_gd": {
       "input_dim": 3,
-      "embedding_dim": 5,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_src": {
       "input_dim": 50,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_has_pic": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_has_photo": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_age_split": {
       "input_dim": 26,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_has_npos": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_has_ltr": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_has_eduexp": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "u_has_wkexp": {
       "input_dim": 3,
-      "embedding_dim": 3,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
     },
     "info_all_ctr_has_value": {
       "input_dim": 2,
@@ -622,6 +632,116 @@
     },
     "user_allapptelcr_has_value": {
       "input_dim": 2,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+        "i_sal_u_sal": {
+      "input_dim": 101,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_sal_u_edu": {
+      "input_dim": 91,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_sal_u_wy": {
+      "input_dim": 71,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_sal_u_age": {
+      "input_dim": 251,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_sal_u_gd": {
+      "input_dim": 21,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_sal_u_nsal": {
+      "input_dim": 101,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_edu_u_sal": {
+      "input_dim": 71,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_edu_u_edu": {
+      "input_dim": 64,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_edu_u_wy": {
+      "input_dim": 50,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_edu_u_age": {
+      "input_dim": 176,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_edu_u_gd": {
+      "input_dim": 15,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_edu_u_nsal": {
+      "input_dim": 71,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wy_u_sal": {
+      "input_dim": 101,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wy_u_edu": {
+      "input_dim": 91,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wy_u_wy": {
+      "input_dim": 71,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wy_u_age": {
+      "input_dim": 251,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wy_u_gd": {
+      "input_dim": 21,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wy_u_nsal": {
+      "input_dim": 101,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wf8_u_edu": {
+      "input_dim": 19,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wf8_u_age": {
+      "input_dim": 51,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wf10_u_age": {
+      "input_dim": 5,
+      "embedding_dim": 1,
+      "initializer": "tf.random_normal_initializer"
+    },
+    "i_wf10_u_nsal": {
+      "input_dim": 5,
       "embedding_dim": 1,
       "initializer": "tf.random_normal_initializer"
     }
