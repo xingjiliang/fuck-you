@@ -50,7 +50,7 @@ def from_text_line_file(dataset_config, is_trainning):
             .repeat(dataset_config.epoch_num)
 
     else:
-        return text_line_dataset.map(to_instance).padded_batch(10000, tuple(padded_shapes_list))
+        return text_line_dataset.map(to_instance).padded_batch(dataset_config.batch_size, tuple(padded_shapes_list))
 
 
 def shard_array(array, shard_num):

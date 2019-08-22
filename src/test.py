@@ -12,8 +12,9 @@ import numpy as np
 import tensorflow as tf
 from absl import app
 from absl import flags
-import data_utils
+
 import config
+import data_utils
 
 LOG = config.logging.getLogger('test')
 
@@ -29,20 +30,29 @@ def test(global_config):
             config.INFO_INPUT_EMBEDDINGS_PATH), False)
         saver = tf.train.Saver(max_to_keep=None)
         model_parameters_path = "{}".format(os.path.join(config.MODEL_PARAMETERS_PATH, global_config.application_name))
-        auc_op, auc_value = tf.metrics.auc(model.labels, model.predictions)
+        auc_op_ts, auc_value_ts = tf.metrics.auc(model.labels, tf.sigmoid(model.logits))
 
         # batch_accuracy_num_node = tf.reduce_sum(tf.cast(tf.equal(model.labels, tf.arg_max(model.logits, 1)), tf.int32))
-        fetches = [auc_value, model.loss]
+        fetches = [auc_value_ts, model.loss, model.labels, tf.sigmoid(model.logits)]
+        global_labels = []
+        global_logits = []
         with tf.Session() as sess:
             sess.run(tf.local_variables_initializer())
             saver.restore(sess, model_parameters_path)
             try:
                 while True:
-                    sess.run(auc_op)
-                    auc, loss = sess.run(fetches)
+                    sess.run(auc_op_ts)
+                    auc, loss, labels, logits = sess.run(fetches)
+                    global_labels.append(labels)
+                    global_logits.append(logits)
                     LOG.info('损失={},AUC={}'.format(loss, auc))
             except tf.errors.OutOfRangeError:
-                LOG.info('损失={},AUC={}'.format(loss, auc))
+                global_auc_op_ts, global_auc_value_ts = tf.metrics.auc(np.concatenate(global_labels),
+                                                                       np.concatenate(global_logits))
+                sess.run(tf.local_variables_initializer())
+                sess.run(auc_op_ts)
+                global_auc = sess.run(global_auc_value_ts)
+                LOG.info('all AUC={}'.format(global_auc))
 
 
 def check_arguments(FLAGS):
@@ -72,7 +82,7 @@ def _define_flags():
     flags.DEFINE_string(name="train_dataset_path", short_name="n", default='none', help="训练集文件名")
     flags.DEFINE_string(name="test_dataset_path", short_name="t", default=None, help="测试集文件名")
     flags.DEFINE_integer(name="epoch_num", short_name="e", default=None, help="训练集迭代次数")
-    flags.DEFINE_integer(name="batch_size", short_name="b", default=None, help="batch_size")
+    flags.DEFINE_integer(name="batch_size", short_name="b", default=1024, help="batch_size")
     flags.DEFINE_float(name="learn_rate", short_name="l", default=None, help="学习率")
     flags.DEFINE_string(name="model_config_file", short_name="c", default="im_click_rate_prediction_model.cfg", help="模型配置文件")
     flags.DEFINE_string(name="feature_config_file", short_name="f", default="im_features_no_cross.json", help="特征配置文件")
