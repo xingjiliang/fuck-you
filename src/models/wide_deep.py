@@ -44,13 +44,14 @@ class Model:
         for input_feature in input_space_map:
             input_feature_attribute_map = input_space_map[input_feature]
             form = input_feature_attribute_map[config.INPUT_FEATURE_FORM]
+            feature_type = input_feature_attribute_map[config.INPUT_FEATURE_TYPE]
             if form == "label":
                 self.labels = self.feature_value_map[input_feature]
                 continue
             # 'div' if attribute == "info_input_embeddings" else 'mod')
-            if form == 'single':
+            if form == 'single' and feature_type == 'continuous':
                 self.discrete_feature_embeddings_list.append(tf.expand_dims(self.feature_value_map[input_feature], -1))
-            if form == 'cross':
+            if form == 'cross' or (form == 'single' and feature_type == 'discrete'):
                 feature_space = input_feature_attribute_map[config.FEATURE_SPACE]
                 tensor = tf.nn.embedding_lookup(self.feature_embeddings_map[feature_space],
                                                 self.feature_value_map[input_feature])
