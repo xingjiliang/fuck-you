@@ -43,6 +43,7 @@ def from_text_line_file(dataset_config, is_trainning):
         padded_shapes_list.append([] if feature_form == "single" or feature_form == "label" or feature_form == 'cross'
                                   else [dataset_config.max_sequence_size])
     print(padded_shapes_list)
+    print(text_line_dataset.map(to_instance))
     if is_trainning:
         return text_line_dataset.map(to_instance)\
             .shuffle(dataset_config.shuffle_buffer_size)\
