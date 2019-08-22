@@ -1,325 +1,449 @@
 {
   "input_space": {
+    "roiapppv": {
+      "index": 0,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":9.0, "min_value":0.0}
+    },
+    "appdelivery": {
+      "index": 1,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":9.0, "min_value":0.0}
+    },
+    "appim": {
+      "index": 2,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":6.0, "min_value":0.0}
+    },
+    "apptel": {
+      "index": 3,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":5.0, "min_value":0.0}
+    },
+    "allappclick": {
+      "index": 4,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":51.0, "min_value":0.0}
+    },
+    "allappimcr": {
+      "index": 5,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allappcvr": {
+      "index": 6,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "allapptelcr": {
+      "index": 7,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_ctr": {
+      "index": 12,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_cvr": {
+      "index": 13,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "all_clicknum": {
+      "index": 14,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":35.0, "min_value":0.0}
+    },
+    "all_dlyn": {
+      "index": 15,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":11.0, "min_value":0.0}
+    },
+    "imcnt": {
+      "index": 16,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":8.0, "min_value":0.0}
+    },
+    "telcnt": {
+      "index": 17,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":7.0, "min_value":0.0}
+    },
+    "rec_imcr": {
+      "index": 18,
+      "form": "single",
+      "feature_type": "continuous"
+    },
+    "i_rctn": {
+      "index": 143,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":10.0, "min_value":0.0}
+    },
+    "i_add": {
+      "index": 144,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":100.0, "min_value":0.0}
+    },
+    "u_p_local": {
+      "index": 149,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":124.0, "min_value":0.0}
+    },
+    "u_p_cate": {
+      "index": 150,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":55.0, "min_value":0.0}
+    },
+    "u_p_salary": {
+      "index": 151,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":55.0, "min_value":0.0}
+    },
+    "u_p_edu": {
+      "index": 152,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":111.0, "min_value":0.0}
+    },
+    "u_p_exp": {
+      "index": 153,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":111.0, "min_value":0.0}
+    },
+    "u_p_welfare1": {
+      "index": 154,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":60.0, "min_value":0.0}
+    },
+    "u_p_welfare4": {
+      "index": 157,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":32.0, "min_value":0.0}
+    },
+    "u_p_welfare5": {
+      "index": 158,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":39.0, "min_value":0.0}
+    },
+    "u_p_welfare6": {
+      "index": 159,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":38.0, "min_value":0.0}
+    },
+    "u_p_welfare7": {
+      "index": 160,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":63.0, "min_value":0.0}
+    },
+    "u_p_welfare8": {
+      "index": 161,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":74.0, "min_value":0.0}
+    },
+    "u_p_welfare9": {
+      "index": 162,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":44.0, "min_value":0.0}
+    },
+    "u_p_welfare10": {
+      "index": 163,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":74.0, "min_value":0.0}
+    },
+    "user_info_post_distance": {
+      "index": 173,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":8000.0, "min_value":0}
+    },
+    "u_adday": {
+      "index": 175,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":152.0, "min_value":0}
+    },
+    "u_upday": {
+      "index": 176,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":6.0, "min_value":0}
+    },
     "c_loc1": {
       "index": 190,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "city"
     },
     "c_lg": {
       "index": 193,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "c_lg"
     },
     "c_hour": {
       "index": 194,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "c_hour"
     },
     "c_slot": {
       "index": 195,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "c_slot"
     },
     "c_pos": {
       "index": 196,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "c_pos"
     },
     "i_edu": {
       "index": 198,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_edu"
     },
     "i_sal": {
       "index": 199,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "salary"
     },
     "i_wf1": {
       "index": 200,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf1"
     },
     "i_wf4": {
       "index": 203,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf4"
     },
     "i_wf5": {
       "index": 204,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf5"
     },
     "i_wf6": {
       "index": 205,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf6"
     },
     "i_wf7": {
       "index": 206,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf7"
     },
     "i_wf8": {
       "index": 207,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf8"
     },
     "i_wf9": {
       "index": 208,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf9"
     },
     "i_wf10": {
       "index": 209,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wf10"
     },
     "i_wy": {
       "index": 213,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_wy"
     },
+    "i_titlen": {
+      "index": 214,
+      "form": "single",
+      "feature_type": "continuous",
+      "preprocessing_func": "min_max_scaling",
+      "func_params": {"max_value":12.0, "min_value":0.0}
+    },
     "i_ploc1": {
       "index": 217,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "city"
     },
     "i_ct2": {
       "index": 221,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_ct2"
     },
     "i_ct3": {
       "index": 222,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "i_ct3"
     },
-    "i_sal_u_sal": {
-      "index": 235,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_sal_u_sal"
-    },
-    "i_sal_u_edu": {
-      "index": 236,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_sal_u_edu"
-    },
-    "i_sal_u_wy": {
-      "index": 237,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_sal_u_wy"
-    },
-    "i_sal_u_age": {
-      "index": 238,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_sal_u_age"
-    },
-    "i_sal_u_gd": {
-      "index": 239,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_sal_u_gd"
-    },
-    "i_sal_u_nsal": {
-      "index": 240,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_sal_u_nsal"
-    },
-    "i_edu_u_sal": {
-      "index": 241,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_edu_u_sal"
-    },
-    "i_edu_u_edu": {
-      "index": 242,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_edu_u_edu"
-    },
-    "i_edu_u_wy": {
-      "index": 243,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_edu_u_wy"
-    },
-    "i_edu_u_age": {
-      "index": 244,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_edu_u_age"
-    },
-    "i_edu_u_gd": {
-      "index": 245,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_edu_u_gd"
-    },
-    "i_edu_u_nsal": {
-      "index": 246,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_edu_u_nsal"
-    },
-    "i_wy_u_sal": {
-      "index": 247,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wy_u_sal"
-    },
-    "i_wy_u_edu": {
-      "index": 248,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wy_u_edu"
-    },
-    "i_wy_u_wy": {
-      "index": 249,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wy_u_wy"
-    },
-    "i_wy_u_age": {
-      "index": 250,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wy_u_age"
-    },
-    "i_wy_u_gd": {
-      "index": 251,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wy_u_gd"
-    },
-    "i_wy_u_nsal": {
-      "index": 252,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wy_u_nsal"
-    },
-    "i_wf8_u_edu": {
-      "index": 253,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wf8_u_edu"
-    },
-    "i_wf8_u_age": {
-      "index": 254,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wf8_u_age"
-    },
-    "i_wf10_u_age": {
-      "index": 256,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wf10_u_age"
-    },
-    "i_wf10_u_nsal": {
-      "index": 257,
-      "form": "cross",
-      "feature_type": "discrete",
-      "space": "i_wf10_u_nsal"
-    },
     "u_wy": {
       "index": 272,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_wy"
     },
     "u_sal": {
       "index": 273,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "salary"
     },
     "u_edu": {
       "index": 274,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_edu"
     },
     "u_gd": {
       "index": 275,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_gd"
     },
-    "u_src": {
-      "index": 276,
-      "form": "single",
-      "feature_type": "discrete",
-      "space": "u_src"
-    },
     "u_has_pic": {
       "index": 280,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_has_pic"
     },
     "u_has_photo": {
       "index": 281,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_has_photo"
     },
     "u_age_split": {
       "index": 282,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_age_split"
     },
     "u_has_npos": {
       "index": 286,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_has_npos"
     },
     "u_has_ltr": {
       "index": 291,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_has_ltr"
     },
     "u_has_eduexp": {
       "index": 294,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_has_eduexp"
     },
     "u_has_wkexp": {
       "index": 295,
-      "form": "single",
+      "form": "cross",
       "feature_type": "discrete",
       "space": "u_has_wkexp"
     },
+    "info_all_ctr_has_value": {
+      "index": 300,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_all_ctr_has_value"
+    },
+    "info_all_cvr_has_value": {
+      "index": 301,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_all_cvr_has_value"
+    },
+    "info_rec_imcr_has_value": {
+      "index": 302,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "info_rec_imcr_has_value"
+    },
+    "user_allappimcr_has_value": {
+      "index": 303,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allappimcr_has_value"
+    },
+    "user_allappcvr_has_value": {
+      "index": 304,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allappcvr_has_value"
+    },
+    "user_allapptelcr_has_value": {
+      "index": 305,
+      "form": "single",
+      "feature_type": "discrete",
+      "space": "user_allapptelcr_has_value"
+    },
     "label_delivery": {
-      "index": -1,
+      "index": 306,
       "form": "label",
       "feature_type": "discrete",
       "space": "u_has_wkexp"
@@ -333,7 +457,8 @@
     },
     "c_lg": {
       "input_dim": 2,
-      "embedding_dim": 5,      "initializer": "tf.contrib.layers.xavier_initializer"
+      "embedding_dim": 5,
+      "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "c_hour": {
       "input_dim": 24,
@@ -446,7 +571,7 @@
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
     "u_age_split": {
-      "input_dim": 25,
+      "input_dim": 26,
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
@@ -470,115 +595,35 @@
       "embedding_dim": 3,
       "initializer": "tf.contrib.layers.xavier_initializer"
     },
-    "i_sal_u_sal": {
-      "input_dim": 101,
+    "info_all_ctr_has_value": {
+      "input_dim": 2,
       "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "initializer": "tf.random_normal_initializer"
     },
-    "i_sal_u_edu": {
-      "input_dim": 91,
+    "info_all_cvr_has_value": {
+      "input_dim": 2,
       "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "initializer": "tf.random_normal_initializer"
     },
-    "i_sal_u_wy": {
-      "input_dim": 71,
+    "info_rec_imcr_has_value": {
+      "input_dim": 2,
       "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "initializer": "tf.random_normal_initializer"
     },
-    "i_sal_u_age": {
-      "input_dim": 251,
+    "user_allappimcr_has_value": {
+      "input_dim": 2,
       "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "initializer": "tf.random_normal_initializer"
     },
-    "i_sal_u_gd": {
-      "input_dim": 21,
+    "user_allappcvr_has_value": {
+      "input_dim": 2,
       "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "initializer": "tf.random_normal_initializer"
     },
-    "i_sal_u_nsal": {
-      "input_dim": 101,
+    "user_allapptelcr_has_value": {
+      "input_dim": 2,
       "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_sal": {
-      "input_dim": 71,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_edu": {
-      "input_dim": 64,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_wy": {
-      "input_dim": 50,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_age": {
-      "input_dim": 176,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_gd": {
-      "input_dim": 15,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_edu_u_nsal": {
-      "input_dim": 71,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_sal": {
-      "input_dim": 101,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_edu": {
-      "input_dim": 91,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_wy": {
-      "input_dim": 71,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_age": {
-      "input_dim": 251,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_gd": {
-      "input_dim": 21,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wy_u_nsal": {
-      "input_dim": 101,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf8_u_edu": {
-      "input_dim": 19,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf8_u_age": {
-      "input_dim": 51,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf10_u_age": {
-      "input_dim": 5,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
-    },
-    "i_wf10_u_nsal": {
-      "input_dim": 5,
-      "embedding_dim": 1,
-      "initializer": "tf.contrib.layers.xavier_initializer"
+      "initializer": "tf.random_normal_initializer"
     }
   }
 }

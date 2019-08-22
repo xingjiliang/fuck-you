@@ -2,6 +2,7 @@
 import tensorflow as tf
 
 import config
+import data_utils
 
 
 class Model:
@@ -15,8 +16,13 @@ class Model:
 
         self.feature_value_map = {}
         input_space_map = global_config.feature_config['input_space']
-        for i, feature in enumerate(input_space_map):
-            self.feature_value_map[feature] = sample[i]
+        for i, input_feature in enumerate(input_space_map):
+            if config.INPUT_FEATURE_OPS not in input_space_map[input_feature]:
+                self.feature_value_map[input_feature] = sample[i]
+            else:
+                self.feature_value_map[input_feature] = \
+                    data_utils.tensor_ops.ops[input_space_map[input_feature][config.INPUT_FEATURE_OPS]] \
+                        (sample[i], input_space_map[input_feature][config.FUNC_PARAMS])
 
         feature_space_map = global_config.feature_config['feature_space']
         self.feature_embeddings_map = {}
@@ -26,9 +32,9 @@ class Model:
             exec('initializer = ' + feature_space_attribute_map[config.INITIALIZER] + '()')
             self.feature_embeddings_map[feature_space] = tf.get_variable(name=feature_space + "_embeddings",
                                                                          shape=[feature_space_attribute_map[
-                                                                              config.INPUT_FEATURE_DIM],
-                                                                          feature_space_attribute_map[
-                                                                              config.EMBEDDING_DIM]],
+                                                                                    config.INPUT_FEATURE_DIM],
+                                                                                feature_space_attribute_map[
+                                                                                    config.EMBEDDING_DIM]],
                                                                          dtype=tf.float32,
                                                                          initializer=initializer
                                                                          )
@@ -63,7 +69,7 @@ class Model:
                                                      tf.float32,
                                                      initializer=tf.contrib.layers.xavier_initializer())
             temp_vector = tf.add(tf.matmul(temp_hidden_vector, temp_hidden_layer), temp_hidden_layer_bias)
-            temp_hidden_vector = tf.nn.relu(temp_vector)
+            temp_hidden_vector = tf.nn.relu(temp_vector) if hidden_layer_size != 1 else temp_vector
             pre_layer_size = hidden_layer_size
             self.hidden_vector_list.append(temp_hidden_vector)
         # 这里直接reduce_sum即可
