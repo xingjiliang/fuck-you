@@ -15,6 +15,7 @@ def main(_):
     global_config = config.Configuration(FLAGS)
     # print(global_config)
     train.train(global_config)
+    global_config.batch_size = 65536
     test.test(global_config)
 
 
