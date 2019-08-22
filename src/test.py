@@ -53,6 +53,7 @@ def test(global_config):
                 sess.run(auc_op_ts)
                 global_auc = sess.run(global_auc_value_ts)
                 LOG.info('all AUC={}'.format(global_auc))
+            sess.close()
 
 
 def check_arguments(FLAGS):
@@ -85,7 +86,7 @@ def _define_flags():
     flags.DEFINE_integer(name="batch_size", short_name="b", default=65536, help="batch_size")
     flags.DEFINE_float(name="learn_rate", short_name="l", default=None, help="学习率")
     flags.DEFINE_string(name="model_config_file", short_name="c", default="im_click_rate_prediction_model.cfg", help="模型配置文件")
-    flags.DEFINE_string(name="feature_config_file", short_name="f", default="im_features_no_cross.json", help="特征配置文件")
+    flags.DEFINE_string(name="feature_config_file", short_name="f", default="im_features_unpreprocessed_continuous.json", help="特征配置文件")
 
 
 if __name__ == "__main__":

@@ -49,6 +49,7 @@ def train(global_config):
             except tf.errors.OutOfRangeError:
                 saver.save(sess, save_path, global_step)
                 # saver.save(sess, save_path, global_step=global_step)
+            sess.close()
 
 # def main(_):
 #     pass
