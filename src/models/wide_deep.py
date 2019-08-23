@@ -75,7 +75,8 @@ class Model:
             pre_layer_size = hidden_layer_size
             self.hidden_vector_list.append(temp_hidden_vector)
         # 这里直接reduce_sum即可
-        self.logits = tf.reduce_sum(self.final_vector_list.append(temp_hidden_vector), 0)
+        self.final_vector_list.append(temp_hidden_vector)
+        self.logits = tf.reduce_sum(self.final_vector_list, 0)
         self.predictions = tf.where(self.logits < 0, tf.zeros_like(self.logits), tf.ones_like(self.logits))
         # 输入的logits应未被sigmoid归一化到(0,1)区间内
         sigmoid_cross_entropy_loss = tf.nn.sigmoid_cross_entropy_with_logits(
