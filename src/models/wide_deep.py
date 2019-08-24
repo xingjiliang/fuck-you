@@ -35,7 +35,7 @@ class Model:
                         data_utils.tensor_ops.ops[input_space_map[input_feature][config.INPUT_FEATURE_OPS]] \
                             (sample[i], input_space_map[input_feature][config.FUNC_PARAMS]), 1))
             else:
-                self.labels = self.feature_value_map[input_feature]
+                self.labels = sample[i]
 
         self.wide_part_vector = tf.cast(tf.concat(self.wide_part_feature_list, 1), tf.float32)
         self.wide_part_weights = tf.get_variable("wide_part_weights", [self.wide_part_vector.shape[1], 1], tf.float32,
