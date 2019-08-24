@@ -31,7 +31,7 @@ class Model:
                 else:
                     self.deep_part_feature_list.append(tf.expand_dims(
                         data_utils.tensor_ops.ops[input_space_map[input_feature][config.INPUT_FEATURE_OPS]] \
-                            (sample[i], input_space_map[input_feature][config.FUNC_PARAMS])), 1)
+                            (sample[i], input_space_map[input_feature][config.FUNC_PARAMS]), 1))
             else:
                 self.labels = self.feature_value_map[input_feature]
 
