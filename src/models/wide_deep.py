@@ -25,8 +25,10 @@ class Model:
             feature_type = input_feature_attribute_map[config.INPUT_FEATURE_TYPE]
             if form == 'cross' and feature_type == 'discrete':
                 self.wide_part_feature_list.append(tf.expand_dims(sample[i], 1))
-            elif form == 'single' and feature_type == 'continuous':
-                if config.INPUT_FEATURE_OPS not in input_space_map[input_feature]:
+            elif form == 'single':
+                if feature_type == 'discrete':
+                    self.deep_part_feature_list.append(tf.expand_dims(tf.cast(sample[i], tf.float32), 1))
+                elif config.INPUT_FEATURE_OPS not in input_space_map[input_feature]:
                     self.deep_part_feature_list.append(tf.expand_dims(sample[i], 1))
                 else:
                     self.deep_part_feature_list.append(tf.expand_dims(
