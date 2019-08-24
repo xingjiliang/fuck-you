@@ -37,7 +37,7 @@ def check_arguments(FLAGS):
 
 def _define_flags():
     flags.DEFINE_string(name="application_name", short_name="a", default="NAVATAN", help="模型参数代号")
-    flags.DEFINE_string(name="model_name", short_name="m", default="wide_deep", help="选择models目录下的模型")
+    flags.DEFINE_string(name="model_name", short_name="m", default="wide_deep_new_version", help="选择models目录下的模型")
     flags.DEFINE_string(name="train_dataset_path", short_name="n", default=None, help="训练集文件名")
     flags.DEFINE_string(name="test_dataset_path", short_name="t", default=None, help="测试集文件名")
     flags.DEFINE_integer(name="epoch_num", short_name="e", default=None, help="训练集迭代次数")
