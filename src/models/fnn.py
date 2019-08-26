@@ -8,6 +8,7 @@ import data_utils
 class Model:
 
     def __init__(self, global_config, sample, info_input_embeddings, is_training):
+        global_config.use_batch_normalization = True
         self.global_config = global_config
 
         self.feature_value_map = {}
@@ -68,8 +69,12 @@ class Model:
             temp_hidden_layer_bias = tf.get_variable("hidden_layer_bias_{}".format(i),
                                                      [1, hidden_layer_size],
                                                      tf.float32,
-                                                     initializer=tf.contrib.layers.xavier_initializer())
+                                                     initializer=tf.random_uniform_initializer(0, 1))
             temp_vector = tf.add(tf.matmul(temp_hidden_vector, temp_hidden_layer), temp_hidden_layer_bias)
+            if global_config.use_batch_normalization and hidden_layer_size != 1:
+                temp_vector = tf.contrib.layers.batch_norm(temp_vector, scale=False, updates_collections=None,
+                                                           is_training=is_training, reuse=None if is_training else True,
+                                                           trainable=True)
             temp_hidden_vector = tf.nn.relu(temp_vector) if hidden_layer_size != 1 else temp_vector
             pre_layer_size = hidden_layer_size
             self.hidden_vector_list.append(temp_hidden_vector)

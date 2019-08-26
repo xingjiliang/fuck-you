@@ -52,7 +52,7 @@ class Model:
             temp_hidden_layer_bias = tf.get_variable("hidden_layer_bias_{}".format(i),
                                                      [1, hidden_layer_size],
                                                      tf.float32,
-                                                     initializer=tf.contrib.layers.xavier_initializer())
+                                                     initializer=tf.random_uniform_initializer(0, 1))
             if hidden_layer_size == 1:
                 temp_hidden_vector = tf.concat([temp_hidden_vector, self.wide_part_vector], 1)
                 temp_hidden_layer = tf.concat([temp_hidden_layer, self.wide_part_weights], 0)
