@@ -8,7 +8,7 @@ import data_utils
 class Model:
 
     def __init__(self, global_config, sample, info_input_embeddings, is_training):
-        global_config.use_batch_normalization = True
+        global_config.use_batch_normalization = False
         self.global_config = global_config
 
         self.feature_value_map = {}

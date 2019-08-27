@@ -36,15 +36,15 @@ def check_arguments(FLAGS):
 
 
 def _define_flags():
-    flags.DEFINE_string(name="application_name", short_name="a", default="NAVATAN", help="模型参数代号")
-    flags.DEFINE_string(name="model_name", short_name="m", default="wide_deep_new_version", help="选择models目录下的模型")
+    flags.DEFINE_string(name="application_name", short_name="a", default="aaa", help="模型参数代号")
+    flags.DEFINE_string(name="model_name", short_name="m", default="fnn", help="选择models目录下的模型")
     flags.DEFINE_string(name="train_dataset_path", short_name="n", default=None, help="训练集文件名")
     flags.DEFINE_string(name="test_dataset_path", short_name="t", default=None, help="测试集文件名")
     flags.DEFINE_integer(name="epoch_num", short_name="e", default=None, help="训练集迭代次数")
     flags.DEFINE_integer(name="batch_size", short_name="b", default=None, help="batch_size")
     flags.DEFINE_float(name="learn_rate", short_name="l", default=None, help="学习率")
     flags.DEFINE_string(name="model_config_file", short_name="c", default="im_click_rate_prediction_model.cfg", help="模型配置文件")
-    flags.DEFINE_string(name="feature_config_file", short_name="f", default="im_features_unpreprocessed_continuous.json", help="特征配置文件")
+    flags.DEFINE_string(name="feature_config_file", short_name="f", default="im_features_only_continuous.json", help="特征配置文件")
 
 
 if __name__ == "__main__":
